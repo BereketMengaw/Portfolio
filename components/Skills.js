@@ -1,22 +1,43 @@
 "use client";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHtml5,
+  faCss3,
+  faJsSquare,
+  faReact,
+  faNodeJs,
+  faBootstrap,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
+import { faDatabase } from "@fortawesome/free-solid-svg-icons";
+
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import img from "../pubilc/assets/img/hero.jpg";
 
 export default function App() {
-  const [progress, setProgress] = useState(Array(8).fill(0)); // State for progress bars (one for each button)
-  const [color, setColor] = useState(Array(8).fill("teal")); // State for dynamic colors (one for each button)
+  const [progress, setProgress] = useState(Array(8).fill(0)); // State for progress bars
+  const [color, setColor] = useState(Array(8).fill("teal")); // State for dynamic colors
 
   const technologies = [
-    { name: "HTML/CSS", progress: 90, color: "bg-orange-500" },
-    { name: "JavaScript", progress: 85, color: "bg-yellow-500" },
-    { name: "React", progress: 80, color: "bg-blue-500" },
-    { name: "Node.js", progress: 30, color: "bg-green-500" },
-    { name: "Next.js", progress: 70, color: "bg-purple-500" },
-    { name: "Next.js", progress: 70, color: "bg-purple-500" },
-    { name: "Next.js", progress: 70, color: "bg-purple-500" },
-    { name: "Next.js", progress: 70, color: "bg-purple-500" },
+    { name: "HTML", progress: 90, color: "bg-orange-500", icon: faHtml5 },
+    { name: "CSS", progress: 85, color: "bg-blue-500", icon: faCss3 },
+    {
+      name: "JavaScript",
+      progress: 80,
+      color: "bg-yellow-500",
+      icon: faJsSquare,
+    },
+    { name: "React", progress: 75, color: "bg-teal-500", icon: faReact },
+    { name: "Node.js", progress: 70, color: "bg-green-500", icon: faNodeJs },
+    {
+      name: "Bootstrap",
+      progress: 65,
+      color: "bg-purple-500",
+      icon: faBootstrap,
+    },
+    { name: "MySQL", progress: 60, color: "bg-indigo-500", icon: faGithub },
+    { name: "GitHub", progress: 55, color: "bg-gray-500", icon: faDatabase },
   ];
 
   // Set progress and color immediately when the component mounts
@@ -33,10 +54,13 @@ export default function App() {
 
   return (
     <section className="relative py-10 bg-gray-900 text-white">
-      <h1 className="text-center mb-9">The skills I have</h1>
-      <div className="flex flex-row justify-between">
-        <div className="container skills-popup top-9 flex flex-col gap-8 mx-16">
-          {Array.from({ length: 4 }).map((_, index) => (
+      <h1 className="text-center mb-9 text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent">
+        My Development Toolkit
+      </h1>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+        {/* First Column */}
+        <div className="container skills-popup top-9 flex flex-col gap-8 mx-4 md:mx-36">
+          {technologies.slice(0, 4).map((tech, index) => (
             <div key={index} className="flex items-center gap-4">
               {/* Button */}
               <ul>
@@ -47,31 +71,36 @@ export default function App() {
                     <span></span>
                     <span></span>
                     <span className="fab fa-css3-alt">
-                      <Image
-                        src={img}
-                        alt="My Image"
-                        width={100}
-                        height={100}
-                        className="shadow-lg"
+                      <FontAwesomeIcon
+                        icon={tech.icon}
+                        className="text-4xl"
+                        style={{ color: tech.color.replace("bg-", "text-") }}
                       />
                     </span>
                   </a>
                 </li>
               </ul>
 
-              {/* Progress Bar */}
-              <div className="w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
-                <div
-                  className={`h-full ${color[index]} transition-all duration-300`}
-                  style={{ width: `${progress[index]}%` }}
-                ></div>
+              {/* Progress Bar and Text */}
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium">{tech.name}</span>
+                  <span className="text-sm font-medium">{tech.progress}%</span>
+                </div>
+                <div className="w-48 md:w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full ${tech.color} transition-all duration-300`}
+                    style={{ width: `${tech.progress}%` }}
+                  ></div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="container skills-popup top-9 flex flex-col gap-8 mx-16">
-          {Array.from({ length: 4 }).map((_, index) => (
+        {/* Second Column */}
+        <div className="container skills-popup top-9 flex flex-col gap-8 mx-4 md:mx-16">
+          {technologies.slice(4, 8).map((tech, index) => (
             <div key={index} className="flex items-center gap-4">
               {/* Button */}
               <ul>
@@ -82,26 +111,28 @@ export default function App() {
                     <span></span>
                     <span></span>
                     <span className="fab fa-css3-alt">
-                      <Image
-                        src={img}
-                        alt="My Image"
-                        width={100}
-                        height={100}
-                        className="shadow-lg"
+                      <FontAwesomeIcon
+                        icon={tech.icon}
+                        className="text-4xl"
+                        style={{ color: tech.color.replace("bg-", "text-") }}
                       />
                     </span>
                   </a>
                 </li>
               </ul>
 
-              {/* Progress Bar */}
-              <div className="w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
-                <div
-                  className={`h-full ${
-                    color[index + 4]
-                  } transition-all duration-300`}
-                  style={{ width: `${progress[index + 4]}%` }}
-                ></div>
+              {/* Progress Bar and Text */}
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium">{tech.name}</span>
+                  <span className="text-sm font-medium">{tech.progress}%</span>
+                </div>
+                <div className="w-48 md:w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full ${tech.color} transition-all duration-300`}
+                    style={{ width: `${tech.progress}%` }}
+                  ></div>
+                </div>
               </div>
             </div>
           ))}

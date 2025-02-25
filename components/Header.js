@@ -31,7 +31,7 @@ const Header = () => {
           ))}
         </ul>
 
-        {/* ✅ Mobile Menu Button (Only Visible on Small Screens) */}
+        {/* ✅ Mobile Menu Button  (Only Visible on Small Screens) */}
         <button
           className="md:hidden mobile-menu text-second-color text-2xl"
           onClick={toggleMenu}
