@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 3rem;
+  --font-semi: 600;
+  --hue-color: 224;
+  --first-color: hsl(var(--hue-color), 89%, 60%);
+  --second-color: hsl(var(--hue-color), 56%, 12%);
+  --body-font: "Poppins", sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.75rem;
+  --mb-2: 1rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  --z-back: -10;
+  --z-fixed: 100;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Add this to your global CSS (e.g., styles/globals.css) */
+@keyframes border-transform {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+  }
+}
+
+.moving-circle {
+  background-color: #353746; /* Change to any color */
+
+  animation: border-transform 7s linear infinite;
+}
+
+/** for the moving avator on the name*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.ghost {
+  width: 8vmin;
+  height: 12vmin;
+  background-color: var(--white);
+
+  border-radius: 100% / 70% 70% 0% 0%;
+  transform: translateX(100em) rotateZ(-90deg);
+  position: absolute;
+  opacity: 0.9;
+  mix-blend-mode: exclusion;
+  animation: ghostMove 15s ease-out infinite;
+}
+
+@keyframes ghostMove {
+  0% {
+    transform: translateX(30em) rotateZ(-0deg);
+  }
+  100% {
+    transform: translateX(-35em) rotateZ(-0deg);
+  }
+}
+
+.ghost div {
+  position: absolute;
+  width: 20%;
+  background-color: var(--white);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+}
+
+.ghost div:nth-of-type(1) {
+  height: 7vmin;
+  left: 0;
+  bottom: -6vmin;
+  border-radius: 100% / 0% 0% 50% 50%;
+}
+
+.ghost div:nth-of-type(2),
+.ghost div:nth-of-type(4) {
+  height: 4vmin;
+  left: 20%;
+  bottom: -3vmin;
+  border-radius: 100% / 50% 50% 0% 0%;
+  background-color: transparent;
+}
+
+.ghost div:nth-of-type(3) {
+  height: 4vmin;
+  left: 40%;
+  bottom: -3.95vmin;
+  border-radius: 100% / 0% 0% 60% 60%;
+  background-color: var(--white);
+}
+
+.ghost div:nth-of-type(4) {
+  left: 60%;
+}
+
+.ghost div:nth-of-type(5) {
+  height: 3vmin;
+  left: 80%;
+  bottom: -2.9vmin;
+  border-radius: 100% / 0% 0% 70% 70%;
+  background-color: var(--white);
+}
+
+/*Intro text for the Home
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+#container {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  padding-top: 200px;
+  margin-top: 200px;
+  position: relative;
+  width: 100%;
+  bottom: 45%;
+  display: block;
+}
+
+#flip {
+  height: 50px;
+  overflow: hidden;
+}
+
+#flip > div > div {
+  color: #fff;
+  padding: 4px 12px;
+  height: 45px;
+  margin-bottom: 55px;
+
+  display: inline-block;
+}
+
+#flip div:first-child {
+  animation: show 7s linear infinite;
+}
+
+#flip div div {
+  background: #42c58a;
+}
+
+#flip div:first-child div {
+  background: #e54ef3;
+}
+
+#flip div:last-child div {
+  background: #dc143c;
+}
+
+@keyframes show {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
