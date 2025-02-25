@@ -29,24 +29,28 @@ const Home = () => {
         </div>
 
         {/* Greeting Section */}
-        <div className="relative z-10 text-center mt-6 ">
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white  ">
-            Hello, I'm <span className="text-blue-500">Bereket Mengaw</span> 👋
+        <div className="relative  text-center mt-6 ">
+          <h1 className="md:text-6xl font-bold text-gray-800 dark:text-white  ">
+            Hello, I'm <span className="text-blue-500">Bereket Mengaw</span>
           </h1>
         </div>
-        <div id="container " className="text-center my-5 text-white">
-          <div id="flip" className="mb-3">
+
+        <div id="container" className="text-center mb-5 text-white">
+          <div id="flip" className="mb-3 text-3xl sm:text-4xl md:text-5xl">
             <div>
               <div>Full Stack Developer</div>
             </div>
             <div>
-              <div>Building Scalable Solutions</div>
+              <div>Writing Clean & Efficient Code</div>
             </div>
             <div>
-              <div>Crafting the Web's Future</div>
+              <div>Turning Ideas into Scalable Solutions</div>
             </div>
           </div>
-          and I'm here to innovate with you!
+          <span className="hand text-3xl sm:text-4xl md:text-5xl">
+            {" "}
+            I'm here to innovate with you!
+          </span>
         </div>
       </section>
     </div>

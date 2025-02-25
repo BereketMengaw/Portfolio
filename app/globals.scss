@@ -20,6 +20,7 @@ html {
   text-align: center;
   margin-top: 3px;
   justify-content: center;
+  padding: 5px;
 
   a {
     color: rgb(255 255 255);
@@ -47,4 +48,20 @@ html {
     background-position-x: 300px;
     margin-top: 10px;
   }
+}
+
+/*in the about section*/
+
+.block__item:hover::after {
+  content: "Click to learn more!";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
 }
