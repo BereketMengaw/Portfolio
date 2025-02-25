@@ -4,7 +4,7 @@ function About() {
   return (
     <div>
       <div className="content h-1/2 mb-4">
-        <h1 className="title">
+        <h1 className="title handwritten">
           My Journey
           <div className="aurora">
             <div className="aurora__item"></div>
