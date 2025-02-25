@@ -1,29 +1,27 @@
 import React from "react";
 
-const JourneyBlock = ({ title, gradient }) => {
+function About() {
   return (
-    <a href="#" className="block" style={{ "--bg": `var(${gradient})` }}>
-      <div className="block__item">{title}</div>
-    </a>
+    <div>
+      <div class="content h-40">
+        <h1 class="title">
+          My Journey
+          <div class="aurora">
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+          </div>
+        </h1>
+        <p class="subtitle handwritten text-2xl mx:10 md:mx-32">
+          At 23, I turned challenges into code and dreams into reality. A
+          self-taught developer, I build my future line by line, fueled by
+          passion and perseverance. My journey is a testament to the strength of
+          a dreamer who never stops learning.
+        </p>
+      </div>
+    </div>
   );
-};
+}
 
-const JourneyTimeline = () => {
-  const milestones = [
-    { title: "Born", gradient: "--gradient-1" },
-    { title: "First Code", gradient: "--gradient-2" },
-    { title: "University", gradient: "--gradient-3" },
-    { title: "Freelancing", gradient: "--gradient-4" },
-    { title: "Full-Stack Dev", gradient: "--gradient-5" },
-  ];
-
-  return (
-    <nav className="blocks">
-      {milestones.map((milestone, index) => (
-        <JourneyBlock key={index} {...milestone} />
-      ))}
-    </nav>
-  );
-};
-
-export default JourneyTimeline;
+export default About;

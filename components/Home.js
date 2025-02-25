@@ -6,7 +6,7 @@ import myImg from "../pubilc/assets/img/photoOne.png";
 
 const Home = () => {
   return (
-    <div className="h-screen bg-gray-100 dark:bg-gray-900">
+    <div className=" h-screen max-h-[700px] bg-gray-100 dark:bg-gray-900">
       <section className="relative flex flex-col items-center justify-start h-full px-6 overflow-hidden">
         {/* Background Image Section */}
         <div
@@ -18,13 +18,13 @@ const Home = () => {
         ></div>
 
         {/* Image Section at the top */}
-        <div className="flex moving-circle justify-center items-start z-10 mt-20">
+        <div className="flex  justify-center items-start z-10 mt-20">
           <Image
             src={myImg}
             alt="My Image"
             width={100} // Adjust width for smaller image size
             height={100} // Adjust height for smaller image size
-            className="rounded-full shadow-lg" // Rounded shape with shadow
+            className=" moving-circle shadow-lg" // Rounded shape with shadow
           />
         </div>
 
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
 
         <div id="container" className="text-center mb-5 text-white">
-          <div id="flip" className="mb-3 text-3xl sm:text-4xl md:text-5xl">
+          <div id="flip" className="mb-3 text-3xl sm:text-4xl md:text-5xl ">
             <div>
               <div>Full Stack Developer</div>
             </div>
