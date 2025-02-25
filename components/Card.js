@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faExternalLinkAlt,
-} from "@fortawesome/free-brands-svg-icons"; // Import GitHub and External Link icons
+import { faGithub } from "@fortawesome/free-brands-svg-icons"; // Import GitHub and External Link icons
+import { faLink } from "@fortawesome/free-solid-svg-icons"; // Import the link icon
+
 import {
   faReact,
   faNodeJs,
@@ -30,12 +29,12 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
               />
 
               {/* Technology Logos */}
-              <div className="flex space-x-2 mt-4">
+              <div className="flex space-x-2 mt-4 flex-row justify-center">
                 {techLogos.map((icon, index) => (
                   <FontAwesomeIcon
                     key={index}
                     icon={icon}
-                    className="w-8 h-8 text-gray-700"
+                    className="w-6 h-6 text-white"
                   />
                 ))}
               </div>
@@ -43,12 +42,12 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
           </div>
         </div>
 
-        <div className="slide slide2">
-          <div className="content">
-            <h3>{title}</h3>
+        <div className="slide slide2 ">
+          <div className="content flex flex-row justify-center ">
+            <p>{title}</p>
 
             {/* GitHub and Live Website Links */}
-            <div className="absolute bottom-2 center flex space-x-2 z-10">
+            <div className="absolute bottom-2 center  space-x-2 z-10">
               <a
                 href={githubLink}
                 target="_blank"
@@ -63,10 +62,7 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
                 rel="noopener noreferrer"
                 className="text-gray-700 p-1 rounded-full shadow-md hover:bg-gray-100 transition"
               >
-                <FontAwesomeIcon
-                  icon={faExternalLinkAlt}
-                  className="w-6 h-6 ml-3 "
-                />
+                <FontAwesomeIcon icon={faLink} className="w-6 h-6 ml-3 " />
               </a>
             </div>
           </div>

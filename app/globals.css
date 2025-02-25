@@ -577,8 +577,6 @@ body {
   left: 50%;
 
   transform: translateX(-50%);
-
-  background: #2c73df;
 }
 
 .container .card .slide.slide2 .content p {
