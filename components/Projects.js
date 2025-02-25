@@ -68,7 +68,7 @@ function Projects() {
         My Projects
       </h1>
       {/* First Row */}
-      <div className="flex flex-row">
+      <div className="flex flex-row md:mx-20">
         {cardsData.slice(0, 3).map((card, index) => (
           <Card
             key={index}

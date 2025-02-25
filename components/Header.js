@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { X, Menu } from "lucide-react";
+import myImg from "../pubilc/assets/img/heroOne.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +14,15 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 transparet">
-      <nav className="flex justify-between items-center h-16 px-6 text-white">
+      <nav className="flex justify-between items-center h-16 mt-3 px-6 text-white">
         <a href="#" className="text-second-color font-semibold text-xl">
-          Bereket M.
+          <Image
+            src={myImg}
+            alt="My Image"
+            width={50} // Adjust width for smaller image size
+            height={50} // Adjust height for smaller image size
+            className=" moving-circle shadow-lg" // Rounded shape with shadow
+          />
         </a>
 
         {/* ✅ Desktop Navigation */}
