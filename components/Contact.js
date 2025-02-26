@@ -1,19 +1,41 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        form.current,
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully!", result.text);
+          alert("Message sent successfully!");
+          form.current.reset(); // Reset the form after sending
+        },
+        (error) => {
+          console.error("Failed to send email:", error.text);
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
       className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-900 text-white p-8"
     >
       {/* Left Side - Let's Connect and Social Media Buttons */}
-      <div
-        className="flex-1 flex flex-col items-center md:items-start mb-8 md:ml-52
-      "
-      >
+      <div className="flex-1 flex flex-col items-center md:items-start mb-8 md:ml-52">
         {/* Personal Information */}
         <h1 className="text-4xl font-bold mb-4 text-center md:text-left">
           Bereket Mengaw
@@ -25,7 +47,7 @@ const ContactSection = () => {
           <p className="text-gray-700 mb-2">
             📧 Email:{" "}
             <a
-              href="mailto:john.doe@example.com"
+              href="mailto:Bereketmengaw111@gmail.com"
               className="text-blue-500 hover:underline"
             >
               Bereketmengaw111@gmail.com
@@ -40,7 +62,7 @@ const ContactSection = () => {
               +251947328262
             </a>
           </p>
-          <p className="text-gray-700">🌍 Location: AddisAbaba , Ethiopia</p>
+          <p className="text-gray-700">🌍 Location: Addis Ababa, Ethiopia</p>
         </div>
 
         {/* Social Media Links */}
@@ -50,34 +72,34 @@ const ContactSection = () => {
         <ul className="flex gap-4 flex-wrap justify-center">
           {[
             {
-              href: "/",
-              icon: "home-outline",
-              label: "Home",
-              color: "bg-purple-500",
+              href: "https://github.com/your-username", // Replace with your GitHub profile link
+              icon: "logo-github",
+              label: "GitHub",
+              color: "bg-gray-700", // GitHub's color
             },
             {
-              href: "#",
-              icon: "videocam-outline",
-              label: "Videos",
-              color: "bg-blue-500",
+              href: "https://t.me/your-username", // Replace with your Telegram profile link
+              icon: "paper-plane-outline",
+              label: "Telegram",
+              color: "bg-blue-400", // Telegram's color
             },
             {
-              href: "#",
-              icon: "camera-outline",
-              label: "Photos",
-              color: "bg-orange-500",
+              href: "https://www.upwork.com/freelancers/your-profile", // Replace with your Upwork profile link
+              icon: "briefcase-outline",
+              label: "Upwork",
+              color: "bg-green-500", // Upwork's color
             },
             {
-              href: "#",
-              icon: "share-social-outline",
-              label: "Share",
-              color: "bg-teal-400",
+              href: "https://www.linkedin.com/in/your-profile", // Replace with your LinkedIn profile link
+              icon: "logo-linkedin",
+              label: "LinkedIn",
+              color: "bg-blue-600", // LinkedIn's color
             },
             {
-              href: "#",
-              icon: "heart-outline",
-              label: "Like",
-              color: "bg-pink-500",
+              href: "https://wa.me/your-phone-number", // Replace with your WhatsApp link
+              icon: "logo-whatsapp",
+              label: "WhatsApp",
+              color: "bg-green-400", // WhatsApp's color
             },
           ].map((item, index) => (
             <li
@@ -100,7 +122,11 @@ const ContactSection = () => {
 
       {/* Right Side - Contact Form */}
       <div className="flex-1 w-full max-w-md md:mr-32">
-        <form className="bg-gray-800 p-8 rounded-lg shadow-lg">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="bg-gray-800 p-8 rounded-lg shadow-lg"
+        >
           <div className="mb-6">
             <label htmlFor="name" className="block text-sm font-medium mb-2">
               Name
@@ -108,7 +134,7 @@ const ContactSection = () => {
             <input
               type="text"
               id="name"
-              name="name"
+              name="from_name"
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-purple-500"
               placeholder="Your Name"
               required
@@ -121,7 +147,7 @@ const ContactSection = () => {
             <input
               type="email"
               id="email"
-              name="email"
+              name="from_email"
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-purple-500"
               placeholder="Your Email"
               required

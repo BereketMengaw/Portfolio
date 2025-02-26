@@ -22,7 +22,7 @@ const ProjectDetails = () => {
     images: [One, One, One, One, One],
     overview: (
       <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
-        <p className="font-semibold text-gray-900">
+        <p className="font-semibold text-white">
           This project is a platform built around{" "}
           <span className="text-blue-600">YouTube</span>, designed to help
           content creators in Ethiopia and similar regions monetize their
@@ -37,7 +37,7 @@ const ProjectDetails = () => {
           solution: creators can make their YouTube videos private and share
           access through private links.
         </p>
-        <p className="italic text-gray-600">
+        <p className="italic text-white">
           Students who want to view the content can purchase access, ensuring
           creators are paid for their work while learners receive affordable,
           high-quality education.
@@ -45,17 +45,17 @@ const ProjectDetails = () => {
       </div>
     ),
     functionality: (
-      <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+      <div className="text-white text-lg leading-relaxed space-y-4">
         <h3 className="text-xl font-semibold text-blue-600">Key Features:</h3>
         <ul className="list-disc list-inside space-y-2">
           <li>
-            <span className="font-bold text-gray-900">
+            <span className="font-bold text-gray-500">
               ✅ User Authentication:
             </span>{" "}
             Secure login/signup for users and creators.
           </li>
           <li>
-            <span className="font-bold text-gray-900">
+            <span className="font-bold text-gray-100">
               💳 Payment Integration:
             </span>{" "}
             Accepts payments via <span className="text-blue-600">Chapa</span>{" "}
@@ -157,15 +157,15 @@ const ProjectDetails = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen py-10 px-4">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         {/* Project Image Slideshow */}
-        <div className="relative h-[400px] w-full">
+        <div className="relative h-[400px] w-full bg-white">
           <Image
             src={project.images[currentImageIndex]}
             alt={project.title}
             layout="fill"
             objectFit="cover"
-            className="rounded-t-lg transition-opacity duration-1000"
+            className="rounded-t-lg transition-opacity duration-1000 bg-white"
           />
         </div>
 
@@ -187,8 +187,8 @@ const ProjectDetails = () => {
         </div>
 
         {/* Display Active Section Content */}
-        <div className="p-8 bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
+        <div className="p-8 bg-gray-800">
+          <h2 className="text-3xl font-bold mb-4 text-white">
             {sections[activeSection].title}
           </h2>
           <div>{sections[activeSection].content}</div>
