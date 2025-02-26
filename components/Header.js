@@ -1,28 +1,55 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, Menu } from "lucide-react";
 import myImg from "../pubilc/assets/img/heroOne.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState("home");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "skills", "work", "contact"];
+      const scrollPosition = window.scrollY + 100; // Adjust offset as needed
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (
+          element &&
+          element.offsetTop <= scrollPosition &&
+          element.offsetTop + element.offsetHeight > scrollPosition
+        ) {
+          setCurrentSection(section);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 transparet">
       <nav className="flex justify-between items-center h-16 mt-3 px-6 text-white">
         <a href="#" className="text-second-color font-semibold text-xl">
-          <Image
-            src={myImg}
-            alt="My Image"
-            width={50} // Adjust width for smaller image size
-            height={50} // Adjust height for smaller image size
-            className=" moving-circle shadow-lg" // Rounded shape with shadow
-          />
+          {currentSection === "home" ? (
+            <h1 className="black">Bereket M.</h1>
+          ) : (
+            <Image
+              src={myImg}
+              alt="My Image"
+              width={50} // Adjust width for smaller image size
+              height={50} // Adjust height for smaller image size
+              className="moving-circle shadow-lg" // Rounded shape with shadow
+            />
+          )}
         </a>
 
         {/* ✅ Desktop Navigation */}

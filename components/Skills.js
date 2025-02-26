@@ -53,7 +53,7 @@ export default function App() {
   }, []); // Empty dependency array ensures this runs once when the component mounts
 
   return (
-    <section className="relative py-10 bg-gray-900 text-white">
+    <section className="relative py-10 bg-gray-900 text-white" id="skills">
       <h1 className="text-center mb-9 text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent">
         My Development Toolkit
       </h1>

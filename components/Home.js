@@ -3,10 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import myImg from "../pubilc/assets/img/photoOne.png";
+import Button from "../components/Contact";
+import { Contact } from "lucide-react";
 
 const Home = () => {
   return (
-    <div className=" h-screen max-h-[700px] bg-gray-100 dark:bg-gray-900">
+    <div
+      className=" h-screen max-h-[700px] bg-gray-100 dark:bg-gray-900"
+      id="home"
+    >
       <section className="relative flex flex-col items-center justify-start h-full px-6 overflow-hidden">
         {/* Background Image Section */}
         <div

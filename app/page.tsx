@@ -4,6 +4,7 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import DaguLearn from "../components/DaguLearn";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <DaguLearn />
+      <Contact />
     </div>
   );
 }
