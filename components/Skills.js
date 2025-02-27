@@ -98,7 +98,7 @@ export default function App() {
     {
       name: "Express.js",
       progress: 80,
-      color: "bg-gray-700",
+      color: "bg-blue-700",
       icon: faServer,
       category: "backend",
     },
@@ -112,14 +112,14 @@ export default function App() {
     {
       name: "Payment Integration",
       progress: 70,
-      color: "bg-blue-500",
+      color: "bg-green-500",
       icon: faCreditCard,
       category: "backend",
     },
     {
       name: "Access Control & RBAC",
       progress: 80,
-      color: "bg-gray-700",
+      color: "bg-gray-200",
       icon: faUserShield,
       category: "backend",
     },
@@ -127,7 +127,7 @@ export default function App() {
     {
       name: "API Development (RESTful)",
       progress: 80,
-      color: "bg-blue-600",
+      color: "bg-yellow-600",
       icon: faCode,
       category: "backend",
     },
@@ -135,7 +135,7 @@ export default function App() {
     {
       name: "Google Cloud Platform (GCP)",
       progress: 60,
-      color: "bg-blue-500",
+      color: "bg-pink-500",
       icon: faCloud,
       category: "backend",
     },

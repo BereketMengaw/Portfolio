@@ -22,8 +22,8 @@ function About() {
           studying relentlessly to understand their intersection. This is why I
           created DaguLearn—an initiative to provide monetization access for
           Ethiopian creators, as YouTube has not yet introduced monetization in
-          Ethiopia. Technology isn't just a tool for me; it's a means to create
-          impactful change and empower others.
+          Ethiopia. Technology isn&apos;t just a tool for me; it&apos;s a means
+          to create impactful change and empower others.
         </p>
       </div>
     </div>

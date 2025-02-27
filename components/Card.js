@@ -39,7 +39,7 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
             <p className="text-sm md:text-base">{title}</p>
 
             {/* GitHub and Live Website Links */}
-            <div className="absolute bottom-2 flex space-x-2 z-10">
+            <div className="absolute bottom-2 flex space-x-2 z-10 ">
               <a
                 href={githubLink}
                 target="_blank"

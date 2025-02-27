@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import myImg from "../pubilc/assets/img/photoOne.png"; // Fixed typo (pubilc -> public)
-import Button from "../components/Contact";
 
 const Home = () => {
   return (
@@ -26,7 +25,8 @@ const Home = () => {
         {/* Greeting Section */}
         <div className="relative text-center mt-4 sm:mt-6">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 dark:text-white">
-            Hello, I'm <span className="text-blue-500">Bereket Mengaw</span>
+            Hello, I&apos;m{" "}
+            <span className="text-blue-500">Bereket Mengaw</span>
           </h1>
         </div>
 
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
           <span className="hand text-2xl sm:text-3xl md:text-5xl text-gray-900 dark:text-white">
-            I'm here to innovate with you!
+            I&apos;m here to innovate with you!
           </span>
         </div>
       </section>

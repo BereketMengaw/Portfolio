@@ -12,10 +12,10 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_lfj5f66", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         form.current,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -35,7 +35,7 @@ const ContactSection = () => {
       id="contact"
       className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-900 text-white p-8"
     >
-      {/* Left Side - Let's Connect and Social Media Buttons */}
+      {/* Left Side - Let&apos;s Connect and Social Media Buttons */}
       <div className="flex-1 flex flex-col items-center md:items-start mb-8 md:ml-52">
         {/* Personal Information */}
         <h1 className="text-4xl font-bold mb-4 text-center md:text-left">
@@ -68,54 +68,58 @@ const ContactSection = () => {
 
         {/* Social Media Links */}
         <h2 className="text-2xl font-bold mb-6 text-center md:text-left">
-          Let's Connect
+          Let&apos;s Connect
         </h2>
         <ul className="flex gap-4 flex-wrap justify-center">
           {[
             {
-              href: "https://github.com/your-username", // Replace with your GitHub profile link
+              href: "https://github.com/BereketMengaw", // Replace with your GitHub profile link
               icon: "logo-github",
               label: "GitHub",
-              color: "bg-gray-700", // GitHub's color
+              color: "bg-gray-700", // GitHub&apos;s color
             },
             {
-              href: "https://t.me/your-username", // Replace with your Telegram profile link
+              href: "https://t.me/Berketmengaw", // Replace with your Telegram profile link
               icon: "paper-plane-outline",
               label: "Telegram",
-              color: "bg-blue-400", // Telegram's color
+              color: "bg-blue-400", // Telegram&apos;s color
             },
             {
-              href: "https://www.upwork.com/freelancers/your-profile", // Replace with your Upwork profile link
+              href: "https://www.upwork.com/freelancers/~01d919908808489a42?viewMode=1", // Replace with your Upwork profile link
               icon: "briefcase-outline",
               label: "Upwork",
-              color: "bg-green-500", // Upwork's color
+              color: "bg-green-500", // Upwork&apos;s color
             },
             {
-              href: "https://www.linkedin.com/in/your-profile", // Replace with your LinkedIn profile link
+              href: "https://www.linkedin.com/in/bereket-mengaw-demle-543358316/", // Replace with your LinkedIn profile link
               icon: "logo-linkedin",
               label: "LinkedIn",
-              color: "bg-blue-600", // LinkedIn's color
+              color: "bg-blue-600", // LinkedIn&apos;s color
             },
             {
-              href: "https://wa.me/your-phone-number", // Replace with your WhatsApp link
+              href: "https://wa.me/+251947328262", // Replace with your WhatsApp link
               icon: "logo-whatsapp",
               label: "WhatsApp",
-              color: "bg-green-400", // WhatsApp's color
+              color: "bg-green-400", // WhatsApp&apos;s color
             },
           ].map((item, index) => (
-            <li
-              key={index}
-              className={`relative group w-12 h-12 flex items-center justify-center rounded-full shadow-lg cursor-pointer transition-all duration-500 hover:w-32 ${item.color}`}
-            >
-              {/* Icon */}
-              <span className="absolute transition-transform duration-300 text-white text-xl group-hover:scale-0">
-                <ion-icon name={item.icon}></ion-icon>
-              </span>
+            <li key={index}>
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`relative group w-12 h-12 flex items-center justify-center rounded-full shadow-lg cursor-pointer transition-all duration-500 hover:w-32 ${item.color}`}
+              >
+                {/* Icon */}
+                <span className="absolute transition-transform duration-300 text-white text-xl group-hover:scale-0">
+                  <ion-icon name={item.icon}></ion-icon>
+                </span>
 
-              {/* Text */}
-              <span className="absolute opacity-0 text-white text-xs uppercase tracking-wide transition-opacity duration-300 group-hover:opacity-100">
-                {item.label}
-              </span>
+                {/* Text */}
+                <span className="absolute opacity-0 text-white text-xs uppercase tracking-wide transition-opacity duration-300 group-hover:opacity-100">
+                  {item.label}
+                </span>
+              </a>
             </li>
           ))}
         </ul>
@@ -123,6 +127,10 @@ const ContactSection = () => {
 
       {/* Right Side - Contact Form */}
       <div className="flex-1 w-full max-w-md md:mr-32">
+        {/* Heading */}
+        <h2 className="text-xl font-bold text-center w-full mb-4 md:mb-12">
+          Let’s Keep in Touch
+        </h2>
         <form
           ref={form}
           onSubmit={sendEmail}

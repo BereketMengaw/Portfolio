@@ -7,7 +7,7 @@ import img4 from "../pubilc/assets/img/ProjectFour.png";
 import img5 from "../pubilc/assets/img/projectOne.jpg";
 
 // Import Font Awesome icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faReact,
   faNodeJs,
