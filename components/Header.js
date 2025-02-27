@@ -15,7 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "work", "contact"];
+      const sections = ["home", "about", "skills", "projects", "contact"];
       const scrollPosition = window.scrollY + 100; // Adjust offset as needed
 
       for (const section of sections) {
@@ -54,7 +54,7 @@ const Header = () => {
 
         {/* ✅ Desktop Navigation */}
         <ul className="hidden menu md:flex space-x-6 justify-center">
-          {["Home", "About", "Skills", "Work", "Contact"].map((item) => (
+          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
             <li key={item} className="menu justify-center">
               <a
                 href={`#${item.toLowerCase()}`}
@@ -98,7 +98,7 @@ const Header = () => {
           </button>
 
           <ul className="flex flex-col space-y-6 text-center mt-10">
-            {["Home", "About", "Skills", "Work", "Contact"].map((item) => (
+            {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}

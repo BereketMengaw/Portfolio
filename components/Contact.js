@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import Script from "next/script";
 
 const ContactSection = () => {
   const form = useRef();
@@ -11,7 +12,7 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "service_lfj5f66", // Replace with your EmailJS service ID
         "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
         form.current,
         "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
@@ -189,14 +190,16 @@ const ContactSection = () => {
       </div>
 
       {/* Ionicons Script */}
-      <script
+      <Script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-        nomodule
+        strategy="lazyOnload"
+      />
+      <Script
+        noModule
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-      ></script>
+        strategy="lazyOnload"
+      />
     </section>
   );
 };

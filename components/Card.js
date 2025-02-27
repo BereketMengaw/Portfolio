@@ -2,15 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"; // Import GitHub and External Link icons
-import { faLink } from "@fortawesome/free-solid-svg-icons"; // Import the link icon
-
-import {
-  faReact,
-  faNodeJs,
-  faPython,
-  faVuejs,
-  faAngular,
-} from "@fortawesome/free-brands-svg-icons"; // Import technology stack icons
+import { faGlobe } from "@fortawesome/free-solid-svg-icons"; // Import the link icon
 
 const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
   return (
@@ -25,7 +17,7 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
                 alt={title}
                 width={300}
                 height={200}
-                className="shadow-lg"
+                className="shadow-lg w-full h-auto"
               />
 
               {/* Technology Logos */}
@@ -42,12 +34,12 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
           </div>
         </div>
 
-        <div className="slide slide2 ">
-          <div className="content flex flex-row justify-center ">
-            <p>{title}</p>
+        <div className="slide slide2">
+          <div className="content flex flex-col items-center text-center">
+            <p className="text-sm md:text-base">{title}</p>
 
             {/* GitHub and Live Website Links */}
-            <div className="absolute bottom-2 center  space-x-2 z-10">
+            <div className="absolute bottom-2 flex space-x-2 z-10">
               <a
                 href={githubLink}
                 target="_blank"
@@ -62,7 +54,7 @@ const Card = ({ image, title, githubLink, liveLink, techLogos }) => {
                 rel="noopener noreferrer"
                 className="text-gray-700 p-1 rounded-full shadow-md hover:bg-gray-100 transition"
               >
-                <FontAwesomeIcon icon={faLink} className="w-6 h-6 ml-3 " />
+                <FontAwesomeIcon icon={faGlobe} className="w-6 h-6 mt-1" />
               </a>
             </div>
           </div>
