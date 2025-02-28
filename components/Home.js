@@ -6,10 +6,7 @@ import myImg from "../pubilc/assets/img/photoOne.png"; // Fixed typo (pubilc -> 
 
 const Home = () => {
   return (
-    <div
-      className="h-screen max-h-[700px] bg-gray-100 dark:bg-gray-900"
-      id="home"
-    >
+    <div className="h-screen max-h-[700px]  bg-gray-900" id="home">
       <section className="relative flex flex-col items-center justify-center h-full px-4 sm:px-6 overflow-hidden">
         {/* Image Section at the top */}
         <div className="flex justify-center items-start z-10 mt-0 sm:mt-16 md:mt-0">
