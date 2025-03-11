@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import myImg from "../pubilc/assets/img/photoOne.png"; // Fixed typo (pubilc -> public)
+import myImg from "../pubilc/assets/img/hero.png"; // Fixed typo (pubilc -> public)
 
 const Home = () => {
   return (
