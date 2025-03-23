@@ -21,7 +21,7 @@ const Home = () => {
 
         {/* Greeting Section */}
         <div className="relative text-center mt-4 sm:mt-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 dark:text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
             Hello, I&apos;m{" "}
             <span className="text-blue-500">Bereket Mengaw</span>
           </h1>
