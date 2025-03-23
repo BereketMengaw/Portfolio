@@ -13,8 +13,8 @@ const Home = () => {
           <Image
             src={myImg}
             alt="My Image"
-            width={100} // Increased size for better visibility
-            height={100}
+            width=fit // Increased size for better visibility
+            height=fit
             className="moving-circle shadow-lg sm:w-[120px] sm:h-[120px]"
           />
         </div>
