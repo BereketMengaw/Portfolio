@@ -4,15 +4,7 @@ function About() {
   return (
     <div id="about">
       <div className="content h-1/2 mb-4">
-        <h1 className="title handwritten">
-          My Journey
-          <div className="aurora">
-            <div className="aurora__item"></div>
-            <div className="aurora__item"></div>
-            <div className="aurora__item"></div>
-            <div className="aurora__item"></div>
-          </div>
-        </h1>
+        <h1 className="title handwritten">My Journey</h1>
         <p className="subtitle handwritten text-2xl m md:mx-32">
           My journey as a full-stack developer at Addis Ababa University has
           been driven by a deep passion for blending technology and business. I

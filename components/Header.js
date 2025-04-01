@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, Menu } from "lucide-react";
-import myImg from "../pubilc/assets/img/heroOne.png";
+import myImg from "../pubilc/assets/img/hero.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,11 +36,11 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transparet">
+    <header className="fixed top-0 left-0 w-full z-50 transparet ">
       <nav className="flex justify-between items-center h-16 mt-3 px-6 text-white">
         <a href="#" className="text-second-color font-semibold text-xl">
           {currentSection === "home" ? (
-            <h1 className="black">Bereket M.</h1>
+            <h1 className="black slide-top">Bereket M.</h1>
           ) : (
             <Image
               src={myImg}
@@ -54,16 +54,22 @@ const Header = () => {
 
         {/* ✅ Desktop Navigation */}
         <ul className="hidden menu md:flex space-x-6 justify-center">
-          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
-            <li key={item} className="menu justify-center">
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="text-second-color hover:text-primary"
+          {["Home", "About", "Skills", "Projects", "Contact"].map(
+            (item, index) => (
+              <li
+                key={item}
+                className="menu justify-center opacity-0 nav-item-down animate-[slide-top-nav_0.5s_ease-out_both]"
+                style={{ animationDelay: `${index * 100}ms` }} // ✅ Corrected animation delay
               >
-                {item}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${item.toLowerCase()}`}
+                  className="text-second-color hover:text-primary"
+                >
+                  {item}
+                </a>
+              </li>
+            )
+          )}
         </ul>
 
         {/* ✅ Mobile Menu Button  (Only Visible on Small Screens) */}

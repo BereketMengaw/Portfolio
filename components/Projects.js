@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card"; // Import the reusable Card component
-import img1 from "../pubilc/assets/img/projectTwo.jpg";
+import img1 from "../pubilc/assets/img/dagu.jpg";
 import img2 from "../pubilc/assets/img/projectOne.jpg";
 import img3 from "../pubilc/assets/img/projectThree.jpg";
 import img4 from "../pubilc/assets/img/ProjectFour.png";
-import img5 from "../pubilc/assets/img/projectOne.jpg";
+import img5 from "../pubilc/assets/img/udemy.jpg";
 
 // Import Font Awesome icons
 
@@ -30,6 +30,15 @@ function Projects() {
       liveLink: "https://dagulearn.vercel.app",
       techLogos: [faReact, faJs, faDocker],
     },
+
+    {
+      image: img3,
+      title:
+        "Banchi Delivery is a practice project centered on delivery services. Though still in development, it has been successfully deployed.",
+      githubLink: "https://github.com/BereketMengaw/Delivery-Website.git",
+      liveLink: "https://banchi-delivery-website.vercel.app/",
+      techLogos: [faPython, faDocker, faAws],
+    },
     {
       image: img2,
       title:
@@ -38,14 +47,6 @@ function Projects() {
         "https://github.com/BereketMengaw/new-misale-tutor-website-.git",
       liveLink: "https://misaletutors.com",
       techLogos: [faNodeJs, faJs, faAws],
-    },
-    {
-      image: img3,
-      title:
-        "Banchi Delivery is a practice project centered on delivery services. Though still in development, it has been successfully deployed.",
-      githubLink: "https://github.com/BereketMengaw/Delivery-Website.git",
-      liveLink: "https://banchi-delivery-website.vercel.app/",
-      techLogos: [faPython, faDocker, faAws],
     },
     {
       image: img4,

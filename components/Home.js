@@ -3,10 +3,20 @@
 import React from "react";
 import Image from "next/image";
 import myImg from "../pubilc/assets/img/hero.png"; // Fixed typo (pubilc -> public)
+import bgImg from "../pubilc/assets/img/coding.png"; // Fixed typo (pubilc -> public)
 
 const Home = () => {
   return (
-    <div className="h-screen max-h-[700px]  bg-gray-900" id="home">
+    <div
+      style={{
+        backgroundImage: `url(${bgImg.src})`,
+        backgroundSize: "cover",
+
+        height: "100vh",
+      }}
+      className="h-screen max-h-[700px]  bg-gray-900"
+      id="home"
+    >
       <section className="relative flex flex-col items-center justify-center h-full px-4 sm:px-6 overflow-hidden">
         {/* Image Section at the top */}
         <div className="flex justify-center items-start z-10 mt-0 sm:mt-16 md:mt-0">
@@ -15,7 +25,7 @@ const Home = () => {
             alt="My Image"
             width={100} // Increased size for better visibility
             height={100}
-            className="moving-circle shadow-lg sm:w-[120px] sm:h-[120px]"
+            className=" shadow-lg sm:w-[120px] sm:h-[120px]"
           />
         </div>
 

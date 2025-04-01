@@ -747,3 +747,58 @@ body {
     transform: rotateX(360deg);
   }
 }
+
+/*down coming animation */
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.slide-top {
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+/*for the navbar */
+
+@keyframes slide-top-nav {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-item-down {
+  animation: slide-top-nav 0.8s ease-out both;
+}
+
+.nav-item-down:hover {
+  animation: none; /* ✅ Stops animation from resetting */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*for slide from the left*/
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.item-left {
+  animation: slide-left 1s ease-out forwards;
+}
