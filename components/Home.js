@@ -2,65 +2,56 @@
 
 import React from "react";
 import Image from "next/image";
-import myImg from "../pubilc/assets/img/hero.png"; // Fixed typo (pubilc -> public)
-import bgImg from "../pubilc/assets/img/coding.png"; // Fixed typo (pubilc -> public)
+import myImg from "../pubilc/assets/img/profOne.png"; // Fixed typo (pubilc -> public)
+import { Download } from "lucide-react";
 
 const Home = () => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${bgImg.src})`,
-        backgroundSize: "cover",
+    <div className="relative w-full min-h-screen bg-black flex items-center justify-center px-4 sm:px-10 py-10 sm:py-0">
+      {/* Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-purple-900 opacity-90"></div>
 
-        height: "100vh",
-      }}
-      className="h-screen max-h-[700px]  bg-gray-900"
-      id="home"
-    >
-      <section className="relative flex flex-col items-center justify-center h-full px-4 sm:px-6 overflow-hidden">
-        {/* Image Section at the top */}
-        <div className="flex justify-center items-start z-10 mt-0 sm:mt-16 md:mt-0">
+      {/* Main Content */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center w-full max-w-6xl gap-8 md:gap-0">
+        {/* Profile Image - Top on mobile */}
+        <div className="flex justify-center relative order-first md:order-last mt-6 md:mt-0 mb-6 md:mb-0">
           <Image
             src={myImg}
-            alt="My Image"
-            width={100} // Increased size for better visibility
-            height={100}
-            className=" shadow-lg sm:w-[120px] sm:h-[120px]"
+            alt="Bereket Mengaw"
+            width={400}
+            height={400}
+            className="rounded-full  w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] object-cover"
           />
+          {/* Purple Glow Effect */}
+          <div className="absolute w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[300px] md:h-[300px] bg-purple-600 rounded-full blur-3xl opacity-40 -z-10"></div>
         </div>
 
-        {/* Greeting Section */}
-        <div className="relative text-center mt-4 sm:mt-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
-            Hello, I&apos;m{" "}
-            <span className="text-blue-500">Bereket Mengaw</span>
+        {/* Text Content */}
+        <div className="text-white order-last md:order-first text-center md:text-left">
+          <h2 className="text-sm sm:text-lg font-semibold text-gray-400 uppercase">
+            Full-Stack Web Developer
+          </h2>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-2">
+            Bereket <span className="text-purple-400">Mengaw</span>
           </h1>
-        </div>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 max-w-md mx-auto md:mx-0">
+            I&apos;m a full-stack web developer passionate about building
+            scalable SaaS solutions.
+          </p>
 
-        {/* Flipping Text Section - Now Visible! */}
-        <div className="text-center mb-4 sm:mb-5 px-4">
-          <div className="mb-2 sm:mb-3 text-2xl sm:text-3xl md:text-5xl flip">
-            <div>
-              <div className="dark:text-white text-gray-900">
-                Full Stack Developer
-              </div>
-            </div>
-            <div>
-              <div className="dark:text-white text-gray-900">
-                Writing Clean & Efficient Code
-              </div>
-            </div>
-            <div>
-              <div className="dark:text-white text-gray-900">
-                Turning Ideas into Scalable Solutions
-              </div>
-            </div>
+          {/* Download CV Button */}
+          <div className="flex justify-center md:justify-start mt-5 sm:mt-6">
+            <a
+              href="/path-to-your-cv.pdf"
+              download
+              className="inline-flex items-center gap-2 sm:gap-3 bg-purple-600 hover:bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-semibold transition-all shadow-lg text-sm sm:text-base"
+            >
+              <Download size={16} className="sm:size-[20px]" />
+              Download CV
+            </a>
           </div>
-          <span className="hand text-2xl sm:text-3xl md:text-5xl text-gray-900 dark:text-white">
-            I&apos;m here to innovate with you!
-          </span>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

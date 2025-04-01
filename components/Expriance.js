@@ -42,7 +42,10 @@ function About() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div id="about" className="py-16 px-4 md:px-16 bg-dark text-white">
+    <div
+      id="about"
+      className="py-16 px-4 md:px-16 bg-dark text-white w-screen-lg-screen m-0"
+    >
       {/* Mobile View */}
       <div className="md:hidden">
         {experiences.map((exp, index) => (
@@ -62,7 +65,7 @@ function About() {
       </div>
 
       {/* Desktop View */}
-      <div className="hidden md:block relative max-w-4xl mx-auto">
+      <div className="hidden md:block relative w-full mx-auto">
         {/* Year Buttons - Centered above timeline */}
         <div className="flex justify-center mb-8 space-x-6">
           {experiences.map((exp, index) => (

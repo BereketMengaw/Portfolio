@@ -67,38 +67,25 @@ function Projects() {
   ];
 
   return (
-    <div id="projects" className="flex flex-col mt-20 mx-4 md:mx-16">
-      <h1 className="md:text-6xl text-4xl hand flex flex-row justify-center text-gray-800 dark:text-white">
+    <div
+      id="projects"
+      className=" px-4 md:px-16 overflow-x-hidden bg-gradient-to-br from-purple-900/10 via-purple-950 to-purple-900/10"
+    >
+      <h1 className="text-4xl pt-2 md:text-6xl font-bold text-center text-gray-800 dark:text-white mb-8">
         My Projects
       </h1>
 
-      {/* First Row */}
-      <div className="flex flex-col md:flex-row md:mx-20">
-        {cardsData.slice(0, 3).map((card, index) => (
-          <div key={index} className="w-full md:w-1/3 p-4">
-            <Card
-              image={card.image}
-              title={card.title}
-              githubLink={card.githubLink}
-              liveLink={card.liveLink}
-              techLogos={card.techLogos}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Second Row */}
-      <div className="flex flex-col md:flex-row mx-4 md:mx-40">
-        {cardsData.slice(3).map((card, index) => (
-          <div key={index + 3} className="w-full md:w-1/2 p-4">
-            <Card
-              image={card.image}
-              title={card.title}
-              githubLink={card.githubLink}
-              liveLink={card.liveLink}
-              techLogos={card.techLogos}
-            />
-          </div>
+      {/* Grid Layout for Better Responsiveness */}
+      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {cardsData.map((card, index) => (
+          <Card
+            key={index}
+            image={card.image}
+            title={card.title}
+            githubLink={card.githubLink}
+            liveLink={card.liveLink}
+            techLogos={card.techLogos}
+          />
         ))}
       </div>
     </div>
