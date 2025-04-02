@@ -1,5 +1,5 @@
 import React from "react";
-import bgImg from "../pubilc/assets/img/bgOneTwo.jpg"; // Make sure path is correct
+import bgImg from "../pubilc/assets/img/bgAddis.jpg"; // Make sure path is correct
 import Service from "../components/Service";
 
 function About() {

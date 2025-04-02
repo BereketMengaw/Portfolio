@@ -54,21 +54,26 @@ const Header = () => {
 
         {/* ✅ Desktop Navigation */}
         <ul className="hidden menu md:flex space-x-6 justify-center">
-          {["Home", "About", "Skills", "Projects", "Contact"].map(
-            (item, index) => (
-              <li
-                key={item}
-                className="menu justify-center opacity-0 nav-item-down animate-[slide-top-nav_0.5s_ease-out_both]"
-                style={{ animationDelay: `${index * 100}ms` }} // ✅ Corrected animation delay
-              >
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-second-color hover:text-primary"
+          {currentSection === "home" ? (
+            ["Home", "About", "Skills", "Projects", "Contact"].map(
+              (item, index) => (
+                <li
+                  key={item}
+                  className="menu justify-center opacity-0 nav-item-down animate-[slide-top-nav_0.5s_ease-out_both]"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {item}
-                </a>
-              </li>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="text-second-color hover:text-primary"
+                    onClick={() => setCurrentSection(item.toLowerCase())}
+                  >
+                    {item}
+                  </a>
+                </li>
+              )
             )
+          ) : (
+            <div></div>
           )}
         </ul>
 

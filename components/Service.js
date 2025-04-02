@@ -124,7 +124,15 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mt-20"
         >
-          <button className="relative overflow-hidden px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 text-white font-semibold text-lg shadow-xl group">
+          <button
+            className="relative overflow-hidden px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 text-white font-semibold text-lg shadow-xl group"
+            onClick={() =>
+              window.open(
+                "https://www.upwork.com/freelancers/~01d919908808489a42",
+                "_blank"
+              )
+            }
+          >
             <span className="relative z-10 flex items-center">
               Let&apos;s Build Something Amazing
               <svg

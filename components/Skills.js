@@ -10,7 +10,6 @@ import {
   faReact,
   faNodeJs,
   faBootstrap,
-  faGithub,
   faDocker,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -26,6 +25,10 @@ import {
   faCode,
   faCogs,
   faCloud,
+  faBug,
+  faShieldAlt,
+  faSearch,
+  faShieldVirus,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function App() {
@@ -42,42 +45,42 @@ export default function App() {
     },
     {
       name: "CSS",
-      progress: 90,
+      progress: 93,
       color: "bg-blue-500",
       icon: faCss3,
       category: "frontend",
     },
     {
       name: "JavaScript (ES6+)",
-      progress: 85,
+      progress: 97,
       color: "bg-yellow-500",
       icon: faJsSquare,
       category: "frontend",
     },
     {
       name: "Tailwind CSS",
-      progress: 85,
+      progress: 90,
       color: "bg-teal-500",
       icon: faWind,
       category: "frontend",
     },
     {
       name: "Bootstrap",
-      progress: 75,
+      progress: 86,
       color: "bg-purple-500",
       icon: faBootstrap,
       category: "frontend",
     },
     {
       name: "API Integration",
-      progress: 80,
+      progress: 98,
       color: "bg-indigo-500",
       icon: faGlobe,
       category: "frontend",
     },
     {
       name: "Next.js Routing",
-      progress: 85,
+      progress: 94,
       color: "bg-gray-500",
       icon: faReact,
       category: "frontend",
@@ -86,121 +89,188 @@ export default function App() {
     // Backend Technologies
     {
       name: "Node.js",
-      progress: 80,
+      progress: 94,
       color: "bg-green-500",
       icon: faNodeJs,
       category: "backend",
     },
     {
       name: "Express.js",
-      progress: 80,
+      progress: 95,
       color: "bg-blue-700",
       icon: faServer,
       category: "backend",
     },
     {
       name: "JWT Authentication",
-      progress: 75,
+      progress: 97,
       color: "bg-red-500",
       icon: faLock,
       category: "backend",
     },
     {
       name: "Payment Integration",
-      progress: 70,
+      progress: 95,
       color: "bg-green-500",
       icon: faCreditCard,
       category: "backend",
     },
     {
       name: "Access Control & RBAC",
-      progress: 80,
+      progress: 98,
       color: "bg-gray-200",
       icon: faUserShield,
       category: "backend",
     },
     {
       name: "API Development (RESTful)",
-      progress: 80,
+      progress: 94,
       color: "bg-yellow-600",
       icon: faCode,
-      category: "backend",
-    },
-    {
-      name: "Google Cloud Platform (GCP)",
-      progress: 60,
-      color: "bg-pink-500",
-      icon: faCloud,
-      category: "backend",
-    },
-    {
-      name: "APM (Application Performance Monitoring)",
-      progress: 60,
-      color: "bg-blue-500",
-      icon: faServer,
       category: "backend",
     },
 
     // Database Technologies
     {
       name: "Database Modeling",
-      progress: 75,
+      progress: 90,
       color: "bg-green-500",
       icon: faDatabase,
       category: "database",
     },
     {
       name: "SQL",
-      progress: 80,
+      progress: 94,
       color: "bg-blue-700",
       icon: faDatabase,
       category: "database",
     },
     {
-      name: "MySQL",
-      progress: 85,
-      color: "bg-indigo-600",
+      name: "MongoDB",
+      progress: 90,
+      color: "bg-green-600",
       icon: faDatabase,
       category: "database",
     },
     {
-      name: "Sequelize ORM",
-      progress: 75,
-      color: "bg-purple-600",
-      icon: faCode,
+      name: "Mongoose ODM",
+      progress: 85,
+      color: "bg-red-600",
+      icon: faDatabase,
       category: "database",
     },
 
     // DevOps & Deployment
     {
       name: "CI/CD",
-      progress: 70,
+      progress: 90,
       color: "bg-yellow-600",
       icon: faCogs,
       category: "devops",
     },
     {
       name: "Docker",
-      progress: 65,
+      progress: 85,
       color: "bg-blue-600",
       icon: faDocker,
       category: "devops",
     },
     {
-      name: "Railway & Vercel",
-      progress: 80,
-      color: "bg-gray-600",
+      name: "Vercel Deployment",
+      progress: 95,
+      color: "bg-black",
       icon: faCloud,
       category: "devops",
     },
 
     // Version Control
+
+    // Debugging Skills
     {
-      name: "Git & GitHub",
+      name: "Chrome DevTools",
+      progress: 90,
+      color: "bg-blue-400",
+      icon: faBug,
+      category: "debugging",
+    },
+    {
+      name: "React DevTools",
       progress: 85,
-      color: "bg-gray-500",
-      icon: faGithub,
-      category: "version-control",
+      color: "bg-cyan-500",
+      icon: faBug,
+      category: "debugging",
+    },
+    {
+      name: "Node.js Debugger",
+      progress: 80,
+      color: "bg-green-400",
+      icon: faBug,
+      category: "debugging",
+    },
+    {
+      name: "Next.js Error Handling",
+      progress: 85,
+      color: "bg-gray-400",
+      icon: faBug,
+      category: "debugging",
+    },
+    {
+      name: "API Testing (Postman)",
+      progress: 85,
+      color: "bg-orange-500",
+      icon: faSearch,
+      category: "debugging",
+    },
+    {
+      name: "Logging & Monitoring",
+      progress: 70,
+      color: "bg-purple-400",
+      icon: faSearch,
+      category: "debugging",
+    },
+
+    // Security Skills
+    {
+      name: "JWT Security",
+      progress: 80,
+      color: "bg-red-500",
+      icon: faShieldAlt,
+      category: "security",
+    },
+    {
+      name: "CORS Implementation",
+      progress: 75,
+      color: "bg-blue-500",
+      icon: faShieldAlt,
+      category: "security",
+    },
+    {
+      name: "Helmet.js (Secure Headers)",
+      progress: 80,
+      color: "bg-green-600",
+      icon: faShieldVirus,
+      category: "security",
+    },
+    {
+      name: "CSRF Protection",
+      progress: 70,
+      color: "bg-yellow-500",
+      icon: faShieldAlt,
+      category: "security",
+    },
+    {
+      name: "Rate Limiting",
+      progress: 75,
+      color: "bg-purple-500",
+      icon: faShieldVirus,
+      category: "security",
+    },
+    {
+      name: "Input Validation/Sanitization",
+      progress: 85,
+      color: "bg-indigo-500",
+      icon: faShieldAlt,
+      category: "security",
     },
   ];
 
@@ -208,6 +278,17 @@ export default function App() {
   const filteredTechnologies = technologies.filter(
     (tech) => tech.category === selectedCategory
   );
+
+  // Category titles mapping
+  const categoryTitles = {
+    frontend: "Frontend Technologies",
+    backend: "Backend Technologies",
+    database: "Database Technologies",
+    devops: "DevOps & Deployment",
+
+    debugging: "Debugging & Troubleshooting",
+    security: "Security Practices",
+  };
 
   return (
     <section
@@ -224,44 +305,25 @@ export default function App() {
           My <span className="text-purple-400">Toolkit</span>
         </h2>
 
-        <div className="flex justify-center gap-3 mb-10">
-          <button
-            onClick={() => setSelectedCategory("frontend")}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === "frontend"
-                ? "bg-purple-600 text-white shadow-purple-glow"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            }`}
-          >
-            Frontend
-          </button>
-          <button
-            onClick={() => setSelectedCategory("backend")}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === "backend"
-                ? "bg-purple-600 text-white shadow-purple-glow"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            }`}
-          >
-            Backend
-          </button>
-          <button
-            onClick={() => setSelectedCategory("database")}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === "database"
-                ? "bg-purple-600 text-white shadow-purple-glow"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            }`}
-          >
-            Database
-          </button>
+        <div className="flex justify-center gap-3 mb-10 flex-wrap">
+          {Object.keys(categoryTitles).map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                selectedCategory === category
+                  ? "bg-purple-600 text-white shadow-purple-glow"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              }`}
+            >
+              {categoryTitles[category].split(" ")[0]}
+            </button>
+          ))}
         </div>
 
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8 text-purple-300">
-            {selectedCategory === "frontend" && "Frontend Technologies"}
-            {selectedCategory === "backend" && "Backend Technologies"}
-            {selectedCategory === "database" && "Database Technologies"}
+            {categoryTitles[selectedCategory]}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
