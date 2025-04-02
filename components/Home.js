@@ -20,8 +20,9 @@ const Home = () => {
             alt="Bereket Mengaw"
             width={400}
             height={400}
-            className="rounded-full  w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] object-cover"
+            className="rounded-b-full w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] object-cover object-[50%_40%]"
           />
+
           {/* Purple Glow Effect */}
           <div className="absolute w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[300px] md:h-[300px] bg-purple-600 rounded-full blur-3xl opacity-40 -z-10"></div>
         </div>

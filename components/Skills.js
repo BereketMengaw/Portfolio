@@ -1,7 +1,7 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useState } from "react";
 // Brand Icons (Logos)
 import {
   faHtml5,
@@ -28,12 +28,8 @@ import {
   faCloud,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useState, useEffect } from "react";
-
 export default function App() {
-  const [progress, setProgress] = useState(Array(8).fill(0)); // State for progress bars
-  const [color, setColor] = useState(Array(8).fill("teal")); // State for dynamic colors
-  const [selectedCategory, setSelectedCategory] = useState("frontend"); // State for selected category
+  const [selectedCategory, setSelectedCategory] = useState("frontend");
 
   const technologies = [
     // Frontend Technologies
@@ -123,7 +119,6 @@ export default function App() {
       icon: faUserShield,
       category: "backend",
     },
-
     {
       name: "API Development (RESTful)",
       progress: 80,
@@ -131,7 +126,6 @@ export default function App() {
       icon: faCode,
       category: "backend",
     },
-
     {
       name: "Google Cloud Platform (GCP)",
       progress: 60,
@@ -139,7 +133,6 @@ export default function App() {
       icon: faCloud,
       category: "backend",
     },
-
     {
       name: "APM (Application Performance Monitoring)",
       progress: 60,
@@ -211,103 +204,103 @@ export default function App() {
     },
   ];
 
-  // Set progress and color immediately when the component mounts
-  useEffect(() => {
-    const newProgress = [...progress];
-    const newColor = [...color];
-    technologies.forEach((tech, index) => {
-      newProgress[index] = tech.progress;
-      newColor[index] = tech.color;
-    });
-    setProgress(newProgress);
-    setColor(newColor);
-  }, []); // Empty dependency array ensures this runs once when the component mounts
-
   // Filter technologies based on the selected category
   const filteredTechnologies = technologies.filter(
     (tech) => tech.category === selectedCategory
   );
 
   return (
-    <section className="relative py-10 bg-gray-900 text-white" id="skills">
-      <h1 className="text-center mb-9 text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent">
-        My Development Toolkit
-      </h1>
-      <div className="flex justify-center gap-4 mb-8">
-        <button
-          onClick={() => setSelectedCategory("frontend")}
-          className={`px-4 py-2 rounded ${
-            selectedCategory === "frontend" ? "bg-teal-500" : "bg-gray-700"
-          }`}
-        >
-          Frontend
-        </button>
-        <button
-          onClick={() => setSelectedCategory("backend")}
-          className={`px-4 py-2 rounded ${
-            selectedCategory === "backend" ? "bg-green-500" : "bg-gray-700"
-          }`}
-        >
-          Backend
-        </button>
-        <button
-          onClick={() => setSelectedCategory("database")}
-          className={`px-4 py-2 rounded ${
-            selectedCategory === "database" ? "bg-indigo-500" : "bg-gray-700"
-          }`}
-        >
-          Database
-        </button>
-      </div>
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-8">
-          {selectedCategory === "frontend" && (
-            <span className="text-teal-400">Frontend</span>
-          )}
-          {selectedCategory === "backend" && (
-            <span className="text-green-400">Backend</span>
-          )}
-          {selectedCategory === "database" && (
-            <span className="text-indigo-400">Database</span>
-          )}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-10 lg:mx-36">
-          {filteredTechnologies.map((tech, index) => (
-            <div key={index} className="flex items-center gap-4">
-              {/* Icon */}
-              <ul>
-                <li>
-                  <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span className="fab fa-css3-alt">
-                      <FontAwesomeIcon
-                        icon={tech.icon}
-                        className="text-4xl"
-                        style={{ color: tech.color.replace("bg-", "text-") }}
-                      />
-                    </span>
-                  </a>
-                </li>
-              </ul>
+    <section
+      className="relative py-16 bg-gray-900 text-white w-full overflow-hidden"
+      id="skills"
+    >
+      {/* Subtle purple background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 to-purple-900/5 z-0"></div>
+      <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-purple-800/10 blur-3xl -z-10"></div>
+      <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-purple-600/10 blur-3xl -z-10"></div>
 
-              {/* Progress Bar and Text */}
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between">
-                  <span className="text-sm font-medium">{tech.name}</span>
-                  <span className="text-sm font-medium">{tech.progress}%</span>
-                </div>
-                <div className="w-48 md:w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full ${tech.color} transition-all duration-300`}
-                    style={{ width: `${tech.progress}%` }}
-                  ></div>
+      <div className="relative z-10">
+        <h2 className="text-5xl md:text-6xl font-bold mb-4 font-['Organiez'] tracking-tight text-center">
+          My <span className="text-purple-400">Toolkit</span>
+        </h2>
+
+        <div className="flex justify-center gap-3 mb-10">
+          <button
+            onClick={() => setSelectedCategory("frontend")}
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              selectedCategory === "frontend"
+                ? "bg-purple-600 text-white shadow-purple-glow"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+            }`}
+          >
+            Frontend
+          </button>
+          <button
+            onClick={() => setSelectedCategory("backend")}
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              selectedCategory === "backend"
+                ? "bg-purple-600 text-white shadow-purple-glow"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+            }`}
+          >
+            Backend
+          </button>
+          <button
+            onClick={() => setSelectedCategory("database")}
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              selectedCategory === "database"
+                ? "bg-purple-600 text-white shadow-purple-glow"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+            }`}
+          >
+            Database
+          </button>
+        </div>
+
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center mb-8 text-purple-300">
+            {selectedCategory === "frontend" && "Frontend Technologies"}
+            {selectedCategory === "backend" && "Backend Technologies"}
+            {selectedCategory === "database" && "Database Technologies"}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {filteredTechnologies.map((tech, index) => (
+              <div
+                key={index}
+                className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-purple-500/30 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className={`p-3 rounded-lg ${tech.color}/20`}>
+                    <FontAwesomeIcon
+                      icon={tech.icon}
+                      className={`text-3xl ${tech.color.replace(
+                        "bg-",
+                        "text-"
+                      )}`}
+                    />
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="flex justify-between mb-1">
+                      <span className="font-medium text-gray-100">
+                        {tech.name}
+                      </span>
+                      <span className="font-medium text-purple-300">
+                        {tech.progress}%
+                      </span>
+                    </div>
+                    <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full ${tech.color} transition-all duration-500`}
+                        style={{ width: `${tech.progress}%` }}
+                      ></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

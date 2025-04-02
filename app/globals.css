@@ -613,7 +613,7 @@ body {
 
   text-align: center;
 
-  color: #414141;
+  color: white;
 }
 
 .container .card .slide.slide2 .content h3 {
@@ -625,7 +625,7 @@ body {
 
   text-align: center;
 
-  color: #414141;
+  color: white;
 }
 
 /* for a beating pulse */
@@ -795,4 +795,20 @@ body {
 
 .item-left {
   animation: slide-left 1s ease-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
