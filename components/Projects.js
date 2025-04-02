@@ -22,9 +22,27 @@ import {
 
 import Image from "next/image";
 
-// Import your project images
+// Import for dagulearn
 import img1 from "../pubilc/assets/img/dagu.jpg";
-import img2 from "../pubilc/assets/img/projectTwo.jpg";
+import dashboard from "../pubilc/assets/dagu/creatorDash.jpg";
+import courseList from "../pubilc/assets/dagu/coursePag.jpg";
+import chapterPage from "../pubilc/assets/dagu/chapterPage.jpg";
+import chapa from "../pubilc/assets/dagu/redirectChapa.jpg";
+import earning from "../pubilc/assets/dagu/checkEarning.jpg";
+import admin from "../pubilc/assets/dagu/adminControl.jpg";
+
+//Import for banchi
+
+import foods from "../pubilc/assets/banchi/two.jpg";
+
+//Import for misale
+
+import misale from "../pubilc/assets/misale/first.jpg";
+import parents from "../pubilc/assets/misale/parents.jpg";
+import tutors from "../pubilc/assets/misale/tutors.jpg";
+
+// Import your project images
+
 import img3 from "../pubilc/assets/img/projectThree.jpg";
 import img4 from "../pubilc/assets/img/ProjectFour.png";
 import img5 from "../pubilc/assets/img/udemy.jpg";
@@ -42,11 +60,31 @@ const projectsData = [
         caption: "Homepage featuring featured courses and categories",
       },
       {
-        image: "/assets/img/dagu-dashboard.jpg", // Add your actual dashboard image path
+        image: dashboard, // Add your actual dashboard image path
         caption: "Creator dashboard with analytics and course management",
       },
       {
-        image: "/assets/img/dagu-course.jpg", // Add your actual course page image path
+        image: courseList, // Add your actual course page image path
+        caption: "Course player with progress tracking",
+      },
+      {
+        image: chapterPage, // Add your actual course page image path
+        caption: "Course player with progress tracking",
+      },
+      {
+        image: chapa, // Add your actual course page image path
+        caption: "Course player with progress tracking",
+      },
+      {
+        image: earning, // Add your actual course page image path
+        caption: "Course player with progress tracking",
+      },
+      {
+        image: admin, // Add your actual course page image path
+        caption: "Course player with progress tracking",
+      },
+      {
+        image: earning, // Add your actual course page image path
         caption: "Course player with progress tracking",
       },
     ],
@@ -77,7 +115,7 @@ const projectsData = [
         caption: "Main landing page with service offerings",
       },
       {
-        image: "/assets/img/banchi-tracker.jpg", // Add your actual tracker image path
+        image: foods, // Add your actual tracker image path
         caption: "Package tracking interface",
       },
     ],
@@ -102,11 +140,15 @@ const projectsData = [
       "A tutor agency website powered by Google API, optimizing functionality and user experience to connect students with qualified tutors.",
     screenshots: [
       {
-        image: img2,
+        image: misale,
         caption: "Homepage showcasing tutor specialties",
       },
       {
-        image: "/assets/img/misale-booking.jpg", // Add your actual booking image path
+        image: parents, // Add your actual booking image path
+        caption: "Session booking interface",
+      },
+      {
+        image: tutors, // Add your actual booking image path
         caption: "Session booking interface",
       },
     ],
@@ -241,7 +283,7 @@ function Projects() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-white ">
                   {project.title}
                 </h3>
                 <p className="text-purple-300 text-sm line-clamp-2">
@@ -285,10 +327,11 @@ function Projects() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Image Gallery Section */}
                 <div className="relative h-96 lg:h-auto">
-                  <img
+                  <Image
+                    fill
                     src={selectedProject.screenshots[currentImageIndex].image}
                     alt={selectedProject.screenshots[currentImageIndex].caption}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center object-scale-down"
                   />
 
                   {/* Navigation Arrows */}
