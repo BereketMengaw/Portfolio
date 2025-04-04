@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const experiences = [
   {
     title: "High School & Coding Club Founder",
-    company: "NCA (National College of Addis)",
+    company: "NCA (Neway Challenge Academy)",
     date: "2018 - 2022",
     year: "2018",
     description: [

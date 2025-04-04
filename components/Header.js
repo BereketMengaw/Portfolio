@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, Menu } from "lucide-react";
-import myImg from "../pubilc/assets/img/profOne.png";
+import myImg from "../pubilc/assets/img/bereket.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
