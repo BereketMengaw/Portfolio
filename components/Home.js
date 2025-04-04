@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import myImg from "../pubilc/assets/img/profOne.png"; // Fixed typo (pubilc -> public)
+import myImg from "../pubilc/assets/img/bereket.png"; // Fixed typo (pubilc -> public)
 import { Download } from "lucide-react";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
             alt="Bereket Mengaw"
             width={400}
             height={400}
-            className="rounded-b-full w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] object-cover object-[50%_40%]"
+            className="rounded-b-full w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] object-cover object-[100%_10%]"
           />
 
           {/* Purple Glow Effect */}
