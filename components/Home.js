@@ -42,14 +42,7 @@ const Home = () => {
 
           {/* Download CV Button */}
           <div className="flex justify-center md:justify-start mt-5 sm:mt-6">
-            <a
-              href="/path-to-your-cv.pdf"
-              download
-              className="inline-flex items-center gap-2 sm:gap-3 bg-purple-600 hover:bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-semibold transition-all shadow-lg text-sm sm:text-base"
-            >
-              <Download size={16} className="sm:size-[20px]" />
-              Download CV
-            </a>
+           
           </div>
         </div>
       </div>
