@@ -302,64 +302,91 @@ function Projects() {
   };
 
   return (
-    <div
+    <section
       id="projects"
-      className="px-4 md:px-16 py-12 bg-gradient-to-b from-purple-900/50 to-black overflow-hidden"
+      className="relative px-4 sm:px-8 py-24 mesh-bg overflow-hidden"
     >
-      <h2 className="text-5xl md:text-6xl font-bold mb-12 font-['Organiez'] tracking-tight text-center text-white">
-        My <span className="text-purple-700">Projects</span>
-      </h2>
+      <div className="absolute -left-24 top-1/3 w-[28rem] h-[28rem] rounded-full bg-purple-700/15 blur-[140px] pointer-events-none" />
+      <div className="absolute -right-24 bottom-0 w-[32rem] h-[32rem] rounded-full bg-fuchsia-700/15 blur-[140px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.map((project) => (
-          <div
-            key={project.id}
-            onClick={() => openModal(project)}
-            className="group relative overflow-hidden rounded-xl border border-purple-900/50 hover:border-purple-500/70 transition-all duration-300 cursor-pointer"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <Image
-                src={project.screenshots[0].image}
-                alt={project.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-xl font-bold text-white">
-                  {project.title}
-                </h3>
-                <p className="text-purple-300 text-sm line-clamp-2">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs uppercase tracking-[0.25em] text-purple-200 mb-5">
+            Selected Work
+          </span>
+          <h2 className="section-heading text-white">
+            My <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            A handful of products I&apos;ve designed, built, and shipped — from
+            education platforms to delivery systems.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectsData.map((project) => (
+            <div
+              key={project.id}
+              onClick={() => openModal(project)}
+              className="group relative overflow-hidden rounded-3xl glass glass-hover cursor-pointer"
+            >
+              <div className="relative h-56 overflow-hidden">
+                <Image
+                  src={project.screenshots[0].image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute top-3 right-3 flex gap-1.5">
+                  {project.techStack.slice(0, 3).map((tech, i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-full glass-strong flex items-center justify-center"
+                    >
+                      <FontAwesomeIcon
+                        icon={tech.icon}
+                        className="text-sm text-white"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="text-lg font-semibold text-white">
+                    {project.title}
+                  </h3>
+                  <span className="text-purple-300 text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 whitespace-nowrap">
+                    View
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-[10px]"
+                    />
+                  </span>
+                </div>
+                <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed">
                   {project.description}
                 </p>
               </div>
             </div>
-            <div className="absolute top-4 right-4 flex gap-2">
-              {project.techStack.slice(0, 3).map((tech, i) => (
-                <div key={i} className="bg-gray-800/80 p-2 rounded-full">
-                  <FontAwesomeIcon
-                    icon={tech.icon}
-                    className="text-lg text-white"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {selectedProject && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
             onClick={closeModal}
           ></div>
 
           <div className="relative max-w-6xl mx-auto my-8 px-4">
-            <div className="relative bg-gray-900 rounded-xl border border-purple-900/50 overflow-hidden">
+            <div className="relative glass-strong rounded-3xl overflow-hidden">
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 bg-gray-800 hover:bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                className="absolute top-4 right-4 z-20 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
               >
                 <FontAwesomeIcon icon={faTimes} className="text-white" />
               </button>
@@ -380,7 +407,7 @@ function Projects() {
                           e.stopPropagation();
                           prevImage();
                         }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/80 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
                       >
                         <FontAwesomeIcon
                           icon={faArrowLeft}
@@ -392,7 +419,7 @@ function Projects() {
                           e.stopPropagation();
                           nextImage();
                         }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/80 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
                       >
                         <FontAwesomeIcon
                           icon={faArrowRight}
@@ -402,7 +429,7 @@ function Projects() {
                     </>
                   )}
 
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-900/80 px-3 py-1 rounded-full text-sm text-white">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 glass-strong px-3 py-1 rounded-full text-xs font-mono text-white">
                     {currentImageIndex + 1} /{" "}
                     {selectedProject.screenshots.length}
                   </div>
@@ -415,43 +442,45 @@ function Projects() {
                 </div>
 
                 <div className="p-8 overflow-y-auto max-h-[32rem]">
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                  <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">
                     {selectedProject.title}
                   </h2>
 
-                  <p className="text-gray-300 mb-6">
+                  <p className="text-gray-300 mb-6 leading-relaxed">
                     {selectedProject.description}
                   </p>
 
                   <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-purple-400 mb-3">
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 mb-3">
                       Key Features
                     </h3>
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="text-purple-400 mr-2">•</span>
-                          <span className="text-gray-300">{feature}</span>
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                          <span className="text-gray-300 text-sm leading-relaxed">
+                            {feature}
+                          </span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-purple-400 mb-3">
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 mb-3">
                       Technologies
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {selectedProject.techStack.map((tech, i) => (
                         <div
                           key={i}
-                          className="flex items-center bg-gray-800/50 px-3 py-2 rounded-lg"
+                          className="flex items-center glass px-3 py-1.5 rounded-full"
                         >
                           <FontAwesomeIcon
                             icon={tech.icon}
-                            className="text-lg mr-2"
+                            className="text-sm mr-2 text-purple-300"
                           />
-                          <span className="text-gray-300 text-sm">
+                          <span className="text-gray-200 text-xs">
                             {tech.name}
                           </span>
                         </div>
@@ -459,14 +488,14 @@ function Projects() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-3">
                     {selectedProject.liveLink &&
                       selectedProject.liveLink !== "#" && (
                         <a
                           href={selectedProject.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                          className="inline-flex items-center bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white px-4 py-2.5 rounded-full text-sm font-medium shadow-purple-glow transition-all"
                         >
                           <FontAwesomeIcon
                             icon={faExternalLinkAlt}
@@ -480,7 +509,7 @@ function Projects() {
                         href={selectedProject.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors"
+                        className="inline-flex items-center glass glass-hover text-white px-4 py-2.5 rounded-full text-sm font-medium"
                       >
                         <FontAwesomeIcon icon={faCode} className="mr-2" />
                         View Code
@@ -493,7 +522,7 @@ function Projects() {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

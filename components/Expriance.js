@@ -12,43 +12,43 @@ const experiences = [
       "Developed a strong foundation in computer science and problem-solving.",
       "Founded the school's first coding club, inspiring students to explore programming.",
       "Achieved a remarkable 98/100 in Mathematics, a nationally recognized achievement.",
-      "Passionate about technology, I laid the groundwork for my journey into software development.",
+      "Laid the groundwork for my journey into software development.",
     ],
   },
   {
     title: "Student & Full-Stack Developer Trainee",
     company: "Addis Ababa University & Evangadi Networks (USA)",
     date: "2022 - 2023",
-    year: "2022 ",
+    year: "2022",
     description: [
       "Joined Addis Ababa University to further my education in technology and business.",
-      "Enrolled in Evangadi Networks, a USA-based academy, where I mastered full-stack development.",
-      "Gained hands-on experience in web development, strengthening both front-end and back-end skills.",
-      "Balanced academic studies with practical coding, reinforcing my commitment to digital innovation.",
+      "Mastered full-stack development at Evangadi Networks, a USA-based academy.",
+      "Gained hands-on experience in front-end and back-end engineering.",
+      "Balanced academics with practical coding to deepen real-world skills.",
     ],
   },
   {
     title: "Junior Full-Stack Engineer",
     company: "Kelal Tech",
     date: "2023 - 2024",
-    year: "2023 ",
+    year: "2023",
     description: [
-      "Worked as a junior full-stack engineer, focusing on debugging and backend development.",
-      "Contributed to various projects, refining my expertise in scalable web applications.",
-      "Gained experience in solving complex technical problems in a fast-paced environment.",
-      "Collaborated with teams to enhance software functionality and improve performance.",
+      "Worked as a junior full-stack engineer focusing on debugging and backend development.",
+      "Contributed to several projects, refining my expertise in scalable web applications.",
+      "Solved complex technical problems in a fast-paced environment.",
+      "Collaborated with teams to enhance functionality and performance.",
     ],
   },
   {
     title: "Founder of DaguLearn",
     company: "DaguLearn",
     date: "2024 - Present",
-    year: "2024 ",
+    year: "2024",
     description: [
       "Created Ethiopia's first YouTube course monetization platform for local creators.",
-      "Enabled content creators to sell courses at affordable prices due to the absence of YouTube monetization in Ethiopia.",
-      "Focused on bridging the gap between digital education and monetization opportunities.",
-      "Empowered Ethiopian educators and learners by providing an accessible and profitable platform.",
+      "Enabled creators to sell affordable courses despite limited YouTube monetization in Ethiopia.",
+      "Bridged the gap between digital education and monetization opportunities.",
+      "Empowered Ethiopian educators and learners with an accessible, profitable platform.",
     ],
   },
   {
@@ -57,123 +57,136 @@ const experiences = [
     date: "Ongoing",
     year: "2024+",
     description: [
-      "Providing high-quality full-stack development services to clients worldwide through Upwork.",
-      "Combining technical expertise with business acumen to deliver scalable and impactful digital solutions.",
-      "Helping startups and businesses optimize their web platforms for growth and efficiency.",
-      "Staying ahead in the tech industry by continuously learning and adapting to global market trends.",
-      "Committed to delivering innovative solutions that drive business success in a competitive landscape.",
+      "Delivering high-quality full-stack development services to clients worldwide via Upwork.",
+      "Pairing technical expertise with business sense to ship scalable digital solutions.",
+      "Helping startups optimize their web platforms for growth and efficiency.",
+      "Continuously learning and adapting to global tech trends.",
     ],
   },
 ];
 
-function About() {
+function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div
-      id="about"
-      className="py-16 px-4 md:px-16 bg-gradient-to-b from-purple-900/50 to-black text-white w-screen-lg-screen m-0 relative overflow-hidden"
+    <section
+      id="experience"
+      className="relative w-full py-24 px-4 sm:px-8 overflow-hidden mesh-bg text-white"
     >
-      {/* Purple background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-purple-900/20 z-0"></div>
-      <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-purple-800/10 blur-3xl -z-10"></div>
-      <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-purple-600/10 blur-3xl -z-10"></div>
-      <h2 className="text-5xl md:text-6xl font-bold mb-8 mt-2 font-['Organiez'] tracking-tight text-center ">
-        My <span className="text-purple-900"> Experience</span>
-      </h2>
-      <div className="relative z-10">
+      <div className="absolute -right-32 -top-32 w-[36rem] h-[36rem] rounded-full bg-purple-700/20 blur-[140px] pointer-events-none" />
+      <div className="absolute -left-32 -bottom-32 w-[32rem] h-[32rem] rounded-full bg-fuchsia-700/15 blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs uppercase tracking-[0.25em] text-purple-200 mb-5">
+            Journey
+          </span>
+          <h2 className="section-heading">
+            My <span className="gradient-text">Experience</span>
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            From founding a coding club in high school to building Ethiopia&apos;s
+            first YouTube course monetization platform.
+          </p>
+        </div>
+
         {/* Mobile View */}
-        <div className="md:hidden space-y-8">
+        <div className="md:hidden space-y-5 relative pl-8">
+          <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/50 via-purple-500/30 to-transparent" />
           {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="bg-gray-800/70 backdrop-blur-sm p-6 rounded-lg border border-purple-900/50 shadow-lg"
-            >
-              <h2 className="text-2xl font-semibold text-purple-300">
-                {exp.title}
-              </h2>
-              <p className="text-purple-200">{exp.company}</p>
-              <p className="text-purple-400 mb-4">{exp.date}</p>
-              <ul className="space-y-2 text-gray-200">
-                {exp.description.map((desc, i) => (
-                  <li
-                    key={i}
-                    className="relative pl-4 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full before:bg-purple-500"
-                  >
-                    {desc}
-                  </li>
-                ))}
-              </ul>
+            <div key={index} className="relative">
+              <div className="absolute -left-[25px] top-5 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20 shadow-purple-glow" />
+              <div className="glass glass-hover rounded-2xl p-5">
+                <div className="text-xs font-semibold tracking-wider text-purple-300 uppercase mb-1">
+                  {exp.date}
+                </div>
+                <h3 className="text-lg font-semibold text-white">
+                  {exp.title}
+                </h3>
+                <p className="text-sm text-purple-200/90 mb-3">
+                  {exp.company}
+                </p>
+                <ul className="space-y-1.5 text-sm text-gray-300">
+                  {exp.description.map((desc, i) => (
+                    <li key={i} className="flex gap-2">
+                      <span className="text-purple-400 mt-1">•</span>
+                      <span>{desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Desktop View */}
-        <div className="hidden md:block relative w-full mx-auto mt-2">
-          {/* Vertical Timeline */}
-          <div className="relative">
-            {/* Vertical Line with clickable circles */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500/30 via-purple-600/50 to-purple-500/30">
-              {experiences.map((exp, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 transition-all duration-300 flex items-center justify-center ${
-                    activeIndex === index
-                      ? "bg-purple-600 border-purple-400 text-white transform scale-110 shadow-lg shadow-purple-500/30"
-                      : "bg-gray-800/70 border-gray-600 text-gray-300 hover:bg-gray-700/70 hover:border-purple-400/50"
-                  }`}
-                  style={{
-                    top: `${(index / (experiences.length - 1)) * 100}%`,
-                  }}
-                >
-                  {exp.year}
-                </button>
-              ))}
-            </div>
+        <div className="hidden md:block relative">
+          {/* Center line */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/40 to-transparent" />
 
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative mb-16 ${
-                  index % 2 === 0 ? "pr-12" : "pl-12"
-                }`}
-              >
-                {/* Experience Card */}
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const isLeft = index % 2 === 0;
+              const active = activeIndex === index;
+              return (
                 <div
-                  className={`bg-gray-800/70 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 shadow-lg transition-all duration-300 ${
-                    index % 2 === 0 ? "mr-auto" : "ml-auto"
-                  } ${
-                    activeIndex === index
-                      ? "border-purple-400/70 shadow-purple-500/20 transform scale-[1.02]"
-                      : "opacity-90 hover:opacity-100 hover:border-purple-500/30"
+                  key={index}
+                  className={`relative grid grid-cols-2 gap-12 items-center ${
+                    isLeft ? "" : ""
                   }`}
-                  style={{ maxWidth: "calc(50% - 2rem)" }}
-                  onClick={() => setActiveIndex(index)}
                 >
-                  <h2 className="text-2xl font-semibold text-purple-300 mb-1">
-                    {exp.title}
-                  </h2>
-                  <p className="text-purple-200 mb-1">{exp.company}</p>
-                  <p className="text-purple-400 mb-4">{exp.date}</p>
-                  <ul className="space-y-3 text-gray-200">
-                    {exp.description.map((desc, i) => (
-                      <li
-                        key={i}
-                        className="relative pl-5 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full before:bg-purple-500"
+                  {/* Year node */}
+                  <button
+                    onClick={() => setActiveIndex(index)}
+                    className={`absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full font-semibold text-xs flex items-center justify-center transition-all duration-300 z-10 ${
+                      active
+                        ? "bg-gradient-to-br from-purple-500 to-fuchsia-600 text-white scale-110 shadow-purple-glow"
+                        : "glass-strong text-gray-300 hover:scale-105 hover:text-white"
+                    }`}
+                  >
+                    {exp.year}
+                  </button>
+
+                  {/* Card */}
+                  <div
+                    className={`${
+                      isLeft ? "col-start-1 pr-12 text-right" : "col-start-2 pl-12 text-left"
+                    }`}
+                  >
+                    <div
+                      onClick={() => setActiveIndex(index)}
+                      className={`glass glass-hover rounded-3xl p-6 cursor-pointer transition-all ${
+                        active ? "border-purple-400/50 bg-purple-500/5" : ""
+                      }`}
+                    >
+                      <div className="text-xs font-semibold tracking-wider text-purple-300 uppercase mb-1">
+                        {exp.date}
+                      </div>
+                      <h3 className="text-xl font-semibold text-white">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm text-purple-200/90 mb-3">
+                        {exp.company}
+                      </p>
+                      <ul
+                        className={`space-y-1.5 text-sm text-gray-300 ${
+                          isLeft ? "text-right" : "text-left"
+                        }`}
                       >
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
+                        {exp.description.map((desc, i) => (
+                          <li key={i}>{desc}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default About;
+export default Experience;
