@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import myImg from "../app/image.jpg";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Bot } from "lucide-react";
 
 const Home = () => {
   return (
@@ -28,7 +28,7 @@ const Home = () => {
           </div>
 
           <h2 className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-purple-300 uppercase mb-3">
-            Full-Stack Web Developer
+            Full-Stack &amp; AI Developer
           </h2>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
             Hi, I&apos;m{" "}
@@ -38,9 +38,25 @@ const Home = () => {
           </h1>
 
           <p className="text-gray-300 text-base sm:text-lg mt-5 max-w-lg mx-auto md:mx-0 leading-relaxed">
-            I build scalable SaaS products and high-performance web apps —
-            focused on clean architecture, polished UX, and shipping fast.
+            <span className="text-white font-semibold">3+ years</span> building
+            scalable SaaS products — now accelerated with{" "}
+            <span className="text-purple-200">AI</span> and{" "}
+            <span className="text-purple-200">automation</span> using{" "}
+            <span className="text-purple-200">Claude</span> and{" "}
+            <span className="text-purple-200">Cursor</span> to ship cleaner
+            code, faster.
           </p>
+
+          <div className="mt-5 inline-flex flex-wrap items-center gap-2 px-3 py-2 rounded-full glass text-xs text-gray-200">
+            <Bot className="w-3.5 h-3.5 text-purple-300" />
+            <span className="text-gray-300">AI-accelerated workflow</span>
+            <span className="text-gray-500">·</span>
+            <span className="font-medium text-white">Claude</span>
+            <span className="text-gray-500">·</span>
+            <span className="font-medium text-white">Cursor</span>
+            <span className="text-gray-500">·</span>
+            <span className="font-medium text-white">Claude Code</span>
+          </div>
 
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
             <a
@@ -99,20 +115,20 @@ const Home = () => {
 
             {/* Floating badges */}
             <div className="absolute -left-4 top-10 hidden sm:flex glass rounded-2xl px-3 py-2 items-center gap-2 animate-float">
-              <span className="text-xl">⚡</span>
+              <span className="text-xl">🤖</span>
               <div className="text-xs">
-                <div className="text-white font-semibold">Fast iterations</div>
-                <div className="text-gray-400">Ship weekly</div>
+                <div className="text-white font-semibold">AI-accelerated</div>
+                <div className="text-gray-400">Claude · Cursor</div>
               </div>
             </div>
             <div
               className="absolute -right-4 bottom-10 hidden sm:flex glass rounded-2xl px-3 py-2 items-center gap-2 animate-float"
               style={{ animationDelay: "1.2s" }}
             >
-              <span className="text-xl">🚀</span>
+              <span className="text-xl">⚡</span>
               <div className="text-xs">
-                <div className="text-white font-semibold">SaaS builder</div>
-                <div className="text-gray-400">DaguLearn</div>
+                <div className="text-white font-semibold">Cleaner code</div>
+                <div className="text-gray-400">Faster delivery</div>
               </div>
             </div>
           </div>

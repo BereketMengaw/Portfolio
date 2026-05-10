@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
@@ -55,9 +55,81 @@ import appleProduct from "../pubilc/assets/img/ProjectFour.png";
 import udemyMain from "../pubilc/assets/img/udemy.jpg";
 import udemyPlayer from "../pubilc/assets/img/udemy.jpg";
 
+import niceyardMain from "../app/niceyard.png";
+import niceyardOne from "../app/niceyard one.png";
+import brhanMain from "../app/brhan.png";
+
 const projectsData = [
   {
     id: 1,
+    title: "NiceYard",
+    description:
+      "Mobile-first payment platform built for lawn care professionals. Snap a photo of finished work and get paid instantly — no invoices, no chasing receipts.",
+    screenshots: [
+      {
+        image: niceyardOne,
+        caption: "Snap a photo. Get paid — proof-based payment flow",
+      },
+      {
+        image: niceyardMain,
+        caption: "Receipts via SMS and securely stored cards on file",
+      },
+    ],
+    githubLink: "",
+    liveLink: "https://niceyard.app",
+    techStack: [
+      { icon: faReact, name: "Next.js" },
+      { icon: faCss3Alt, name: "Tailwind CSS" },
+      { icon: faNodeJs, name: "Node.js" },
+      { icon: faCreditCard, name: "Stripe" },
+      { icon: faLock, name: "Apple Pay" },
+      { icon: faServer, name: "REST API" },
+    ],
+    features: [
+      "Photo-based proof of work triggers instant charge",
+      "Stripe-powered secure payments and card-on-file",
+      "Automatic SMS receipts sent to clients",
+      "In-text tipping for added gratuity",
+      "Searchable client and receipt history",
+      "Zero monthly subscription, guaranteed payout rates",
+      "Mobile-first iOS experience with Apple Pay",
+      "Bank-level security and instant deposits",
+    ],
+  },
+  {
+    id: 2,
+    title: "Brhan",
+    description:
+      "Ethiopian-focused e-commerce marketplace featuring Habesha traditional dresses, cultural goods, food, books, and wellness products curated for the diaspora.",
+    screenshots: [
+      {
+        image: brhanMain,
+        caption: "Marketplace homepage with categories and top-rated products",
+      },
+    ],
+    githubLink: "",
+    liveLink: "https://brhan.io",
+    techStack: [
+      { icon: faReact, name: "Next.js" },
+      { icon: faCss3Alt, name: "Tailwind CSS" },
+      { icon: faNodeJs, name: "Node.js" },
+      { icon: faDatabase, name: "MongoDB" },
+      { icon: faCreditCard, name: "Stripe" },
+      { icon: faServer, name: "REST API" },
+    ],
+    features: [
+      "Curated marketplace for Habesha and Ethiopian goods",
+      "Categories spanning gifts, books, food & spices, clothing, and wellness",
+      "Top-rated products and seller storefronts",
+      "Search across the full product catalog",
+      "Wishlist and saved-items support",
+      "Secure checkout with Stripe",
+      "Responsive Next.js frontend",
+      "Optimized product imagery and listings",
+    ],
+  },
+  {
+    id: 3,
     title: "DaguLearn",
     description:
       "A comprehensive e-learning platform with creator monetization, course management, payment integration, and detailed analytics.",
@@ -119,7 +191,7 @@ const projectsData = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     title: "Banchi Delivery",
     description:
       "A complete delivery management system with real-time tracking, order management, and customer portal.",
@@ -157,7 +229,7 @@ const projectsData = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Misale Tutors",
     description:
       "Tutor matching platform with integrated scheduling, video conferencing, and management system.",
@@ -200,7 +272,7 @@ const projectsData = [
     ],
   },
   {
-    id: 4,
+    id: 6,
     title: "Apple Website Clone",
     description:
       "Pixel-perfect responsive clone of Apple's official website with smooth animations and transitions.",
@@ -236,7 +308,7 @@ const projectsData = [
     ],
   },
   {
-    id: 5,
+    id: 7,
     title: "Udemy Clone",
     description:
       "Online learning platform with course management, video streaming, and student progress tracking.",
@@ -282,24 +354,40 @@ function Projects() {
     document.body.style.overflow = "hidden";
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedProject(null);
     document.body.style.overflow = "auto";
-  };
+  }, []);
 
-  const nextImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev + 1) % selectedProject.screenshots.length
-    );
-  };
+  const nextImage = useCallback(() => {
+    setSelectedProject((current) => {
+      if (!current) return current;
+      setCurrentImageIndex((prev) => (prev + 1) % current.screenshots.length);
+      return current;
+    });
+  }, []);
 
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) =>
-        (prev - 1 + selectedProject.screenshots.length) %
-        selectedProject.screenshots.length
-    );
-  };
+  const prevImage = useCallback(() => {
+    setSelectedProject((current) => {
+      if (!current) return current;
+      setCurrentImageIndex(
+        (prev) =>
+          (prev - 1 + current.screenshots.length) % current.screenshots.length
+      );
+      return current;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selectedProject, closeModal, nextImage, prevImage]);
 
   return (
     <section
@@ -376,88 +464,152 @@ function Projects() {
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+        >
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            className="absolute inset-0 bg-black/85 backdrop-blur-xl"
             onClick={closeModal}
-          ></div>
+          />
 
-          <div className="relative max-w-6xl mx-auto my-8 px-4">
-            <div className="relative glass-strong rounded-3xl overflow-hidden">
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 z-20 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-              >
-                <FontAwesomeIcon icon={faTimes} className="text-white" />
-              </button>
+          <div className="relative w-full max-w-6xl max-h-[92vh] flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-[#0b0612]/95 shadow-[0_30px_120px_-20px_rgba(168,85,247,0.45)]">
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent z-10" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative h-96 lg:h-auto">
-                  <Image
-                    fill
-                    src={selectedProject.screenshots[currentImageIndex].image}
-                    alt={selectedProject.screenshots[currentImageIndex].caption}
-                    className="w-full h-full object-cover object-center object-scale-down"
-                  />
-
-                  {selectedProject.screenshots.length > 1 && (
-                    <>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          prevImage();
-                        }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                      >
-                        <FontAwesomeIcon
-                          icon={faArrowLeft}
-                          className="text-white"
-                        />
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          nextImage();
-                        }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                      >
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          className="text-white"
-                        />
-                      </button>
-                    </>
+            <div className="flex items-center justify-between gap-4 px-5 sm:px-7 py-4 border-b border-white/10 bg-black/30 backdrop-blur-md">
+              <div className="min-w-0 flex items-center gap-3">
+                <span className="hidden sm:inline-flex w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_12px_rgba(192,132,252,0.9)]" />
+                <h2 className="text-lg sm:text-xl font-semibold text-white truncate tracking-tight">
+                  {selectedProject.title}
+                </h2>
+                <span className="hidden md:inline-block text-xs font-mono text-purple-300/80 px-2 py-0.5 rounded-full border border-purple-400/30">
+                  {String(selectedProject.id).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                {selectedProject.liveLink &&
+                  selectedProject.liveLink !== "#" && (
+                    <a
+                      href={selectedProject.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hidden sm:inline-flex items-center bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white px-3.5 py-1.5 rounded-full text-xs font-medium shadow-purple-glow transition-all"
+                    >
+                      <FontAwesomeIcon
+                        icon={faExternalLinkAlt}
+                        className="mr-1.5 text-[11px]"
+                      />
+                      Visit
+                    </a>
                   )}
+                <button
+                  onClick={closeModal}
+                  aria-label="Close preview"
+                  className="glass-strong hover:bg-purple-600/40 w-9 h-9 rounded-full flex items-center justify-center transition-all"
+                >
+                  <FontAwesomeIcon icon={faTimes} className="text-white text-sm" />
+                </button>
+              </div>
+            </div>
 
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 glass-strong px-3 py-1 rounded-full text-xs font-mono text-white">
-                    {currentImageIndex + 1} /{" "}
-                    {selectedProject.screenshots.length}
+            <div className="flex-1 overflow-y-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-5">
+                <div className="lg:col-span-3 relative bg-gradient-to-br from-[#15091f] via-[#1a0c28] to-[#0b0612] flex flex-col">
+                  <div className="relative aspect-[16/10] w-full">
+                    <Image
+                      fill
+                      src={selectedProject.screenshots[currentImageIndex].image}
+                      alt={selectedProject.screenshots[currentImageIndex].caption}
+                      className="object-contain"
+                      sizes="(min-width: 1024px) 60vw, 100vw"
+                      priority
+                    />
+
+                    {selectedProject.screenshots.length > 1 && (
+                      <>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            prevImage();
+                          }}
+                          aria-label="Previous screenshot"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                        >
+                          <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            className="text-white"
+                          />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            nextImage();
+                          }}
+                          aria-label="Next screenshot"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 glass-strong hover:bg-purple-600/40 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                        >
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            className="text-white"
+                          />
+                        </button>
+                      </>
+                    )}
+
+                    <div className="absolute top-3 right-3 glass-strong px-2.5 py-1 rounded-full text-[11px] font-mono text-white/90">
+                      {currentImageIndex + 1} /{" "}
+                      {selectedProject.screenshots.length}
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
-                    <p className="text-white text-sm">
+                  <div className="px-5 sm:px-6 py-3 border-t border-white/5">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {selectedProject.screenshots[currentImageIndex].caption}
                     </p>
                   </div>
+
+                  {selectedProject.screenshots.length > 1 && (
+                    <div className="px-5 sm:px-6 pb-4 pt-1">
+                      <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 scroll-smooth">
+                        {selectedProject.screenshots.map((shot, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setCurrentImageIndex(i)}
+                            aria-label={`Show screenshot ${i + 1}`}
+                            className={`relative flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border transition-all ${
+                              i === currentImageIndex
+                                ? "border-purple-400 ring-2 ring-purple-400/50 scale-[1.03]"
+                                : "border-white/10 hover:border-white/30 opacity-60 hover:opacity-100"
+                            }`}
+                          >
+                            <Image
+                              src={shot.image}
+                              alt=""
+                              fill
+                              className="object-cover"
+                              sizes="80px"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                <div className="p-8 overflow-y-auto max-h-[32rem]">
-                  <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">
-                    {selectedProject.title}
-                  </h2>
-
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                <div className="lg:col-span-2 p-6 sm:p-7 lg:border-l border-white/10 bg-black/20">
+                  <p className="text-gray-300 text-[15px] leading-relaxed mb-7">
                     {selectedProject.description}
                   </p>
 
-                  <div className="mb-6">
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 mb-3">
+                  <div className="mb-7">
+                    <h3 className="text-[11px] font-semibold uppercase tracking-[0.25em] text-purple-300 mb-3">
                       Key Features
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2.5">
                       {selectedProject.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                        <li key={i} className="flex items-start gap-2.5">
+                          <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-400 shrink-0" />
                           <span className="text-gray-300 text-sm leading-relaxed">
                             {feature}
                           </span>
@@ -466,21 +618,21 @@ function Projects() {
                     </ul>
                   </div>
 
-                  <div className="mb-8">
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 mb-3">
+                  <div className="mb-7">
+                    <h3 className="text-[11px] font-semibold uppercase tracking-[0.25em] text-purple-300 mb-3">
                       Technologies
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {selectedProject.techStack.map((tech, i) => (
                         <div
                           key={i}
-                          className="flex items-center glass px-3 py-1.5 rounded-full"
+                          className="flex items-center glass px-2.5 py-1.5 rounded-lg border border-white/5"
                         >
                           <FontAwesomeIcon
                             icon={tech.icon}
-                            className="text-sm mr-2 text-purple-300"
+                            className="text-xs mr-1.5 text-purple-300"
                           />
-                          <span className="text-gray-200 text-xs">
+                          <span className="text-gray-200 text-[11px]">
                             {tech.name}
                           </span>
                         </div>
@@ -488,7 +640,7 @@ function Projects() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5 pt-2 border-t border-white/5">
                     {selectedProject.liveLink &&
                       selectedProject.liveLink !== "#" && (
                         <a
@@ -499,7 +651,7 @@ function Projects() {
                         >
                           <FontAwesomeIcon
                             icon={faExternalLinkAlt}
-                            className="mr-2"
+                            className="mr-2 text-xs"
                           />
                           Live Demo
                         </a>
@@ -509,9 +661,9 @@ function Projects() {
                         href={selectedProject.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center glass glass-hover text-white px-4 py-2.5 rounded-full text-sm font-medium"
+                        className="inline-flex items-center glass glass-hover text-white px-4 py-2.5 rounded-full text-sm font-medium border border-white/10"
                       >
-                        <FontAwesomeIcon icon={faCode} className="mr-2" />
+                        <FontAwesomeIcon icon={faCode} className="mr-2 text-xs" />
                         View Code
                       </a>
                     )}

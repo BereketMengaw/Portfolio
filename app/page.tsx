@@ -4,6 +4,7 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Expriance from "../components/Expriance";
+import AiTools from "../components/AiTools";
 
 import Contact from "../components/Contact";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Expriance />
 
       <Skills />
+      <AiTools />
       <Projects />
       <Contact />
     </div>
